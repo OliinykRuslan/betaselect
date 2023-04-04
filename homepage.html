@@ -12,7 +12,7 @@
 <body class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme">
     <!-- Site header -->
     <header class="w-full">
-        <nav class="border-b">
+        <nav>
             <div x-data="{showMenu : false}" class="max-w-screen-2xl mx-auto px-4 xl:px-6">
                 <div class="flex items-center justify-between py-4">
                     <!-- Brand-->
@@ -24,7 +24,7 @@
                     
                     <!-- Navigation -->
                     <nav class="grow hidden flex-col space-y-4 lg:space-y-0 lg:flex-row lg:flex"
-                        :class="{ 'flex absolute top-16 left-0 mt-px border-b bg-white w-full py-8 z-10 lg:relative lg:top-0 lg:py-0 lg:mt-0 lg:border-0': showMenu, 'hidden': !showMenu}"
+                        :class="{ 'flex absolute top-16 left-0 mt-px border-b bg-white w-full py-8 z-20 lg:relative lg:top-0 lg:py-0 lg:mt-0 lg:border-0': showMenu, 'hidden': !showMenu}"
                         id="navbar-main" x-cloak
                     >
                         <ul class="flex justify-center grow items-center origin-top z-10 flex-col space-y-4 lg:space-y-0 lg:flex-row lg:space-x-3 xl:space-x-7 lg:justify-start">
@@ -46,7 +46,7 @@
                                     <ul
                                         x-show="open"
                                         x-on:click.away="open = false"
-                                        class="bg-white text-gray-500 rounded shadow-lg absolute py-2 mt-1"
+                                        class="bg-white text-gray-500 rounded shadow-lg absolute py-2 mt-1 z-20"
                                         style="min-width:15rem"
                                     >
                                         <li>
@@ -895,8 +895,8 @@
         </div>
     </section>
 
-    <footer class="bg-white dark:bg-dark-theme dark:text-white relative z-10">
-        <div class="max-w-6xl mx-auto mb-4 px-8 lg:px-16">
+    <footer class="bg-white dark:bg-dark-theme dark:text-white pb-4 relative z-10">
+        <div class="max-w-6xl mx-auto px-8 lg:px-16">
             <div class="flex flex-wrap border-t border-gray-300 dark:border-gray-60 py-6 space-y-8 sm:space-y-0 lg:py-10 lg:flex-nowrap lg:gap-x-16">
                 <div class="flex justify-between items-center w-full sm:mb-8 lg:mb-0 lg:flex-col lg:justify-start lg:items-start lg:w-52">
                     <!-- Logo -->
