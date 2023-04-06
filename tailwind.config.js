@@ -25,6 +25,9 @@ module.exports = {
           'blue': {
             1000: '#141D4B',
           },
+          'violet': {
+            550: '#AB7AFF',
+          },
           'dark-theme': '#1E1E1E',
         },
         fontSize: {
