@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Betaselect</title>
-
     <link href="./resources/output.css" rel="stylesheet">
 </head>
 
-<body x-data="{ showFilterModal: false }" :class="{ 'overflow-hidden': showFilterModal }" class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme">
+<body x-data="{ showFilterModal: false, showBar: false }" :class="{ 'overflow-hidden': showFilterModal }" class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme">
     <!-- Site header -->
-    <header class="w-full z-20 sticky top-0 bg-white dark:bg-dark-theme">
+    <header
+        :class="[(showBar ? 'border-b border-gray-300 dark:border-gray-60 shadow' : ''), (showFilterModal ? 'z-10': 'z-20')]"
+        class="w-full sticky top-0 bg-white dark:bg-dark-theme"
+        @scroll.window="showBar = (window.pageYOffset > 20) ? true : false"
+    >
         <div x-data="{showMenu : false}" class="max-w-screen-2xl mx-auto px-4 xl:px-6">
             <div class="flex items-center justify-between py-4">
                 <!-- Brand-->
-                <a href="/" class="block md:mr-2 xl:mr-12 shrink-0">
+                <a href="/" class="block md:mr-2 lg:mr-3 xl:mr-12 shrink-0">
                     <svg class="lg:max-w-[155px] xl:max-w-full " width="170px" height="24"><use xlink:href='#logo'/></svg>
                 </a>
-                
                 <!-- Navigation -->
                 <nav class="grow hidden flex-col space-y-4 lg:space-y-0 lg:flex-row lg:flex"
-                    :class="{ 'flex absolute top-16 left-0 bg-white dark:bg-dark-200 lg:dark:bg-transparent w-full py-8 z-20 lg:relative lg:top-0 lg:py-0 lg:mt-0': showMenu, 'hidden': !showMenu}"
+                    :class="{ 'flex absolute top-16 left-0 bg-white border-b border-gray-300 dark:border-gray-60 dark:bg-dark-theme lg:dark:bg-transparent w-full py-8 z-20 lg:relative lg:top-0 lg:py-0 lg:mt-0 lg:border-0': showMenu, 'hidden': !showMenu}"
                     id="navbar-main" x-cloak
                 >
-                    <ul class="flex justify-center grow items-center origin-top z-10 flex-col space-y-4 lg:space-y-0 lg:flex-row lg:space-x-3 xl:space-x-7 lg:justify-start">
+                    <ul class="flex justify-start items-start px-4 grow origin-top z-10 flex-col space-y-4 lg:px-0 lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-center xl:space-x-7">
                         <li class="text-sm text-gray-500 dark:text-white lg:dark:text-dark-100 font-medium">
                             <div
                                 x-data="{ open: false }"
@@ -32,7 +34,7 @@
                             >
                                 <button
                                     x-on:click="open = true"
-                                    class="flex items-center mx-auto hover:text-violet-600 focus:text-violet-600 dark:hover:text-white dark:focus:text-white transition-all"
+                                    class="flex items-center hover:text-black focus:text-black dark:hover:text-white dark:focus:text-white transition-all"
                                     type="button"
                                 >
                                     <span class="mr-1">Vacancies</span>
@@ -71,7 +73,7 @@
                             >
                                 <button
                                     x-on:click="open = true"
-                                    class="flex items-center mx-auto hover:text-violet-600 focus:text-violet-600 dark:hover:text-white dark:focus:text-white transition-all"
+                                    class="flex items-center hover:text-black focus:text-black dark:hover:text-white dark:focus:text-white transition-all"
                                     type="button"
                                 >
                                     <span class="mr-1">How we work</span>
@@ -104,93 +106,89 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-violet-600 dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 About Betaselect
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-violet-600 dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 Contact us
                             </a>
                         </li>
-                    </ul>
-
-                    <!-- Navigation 2 -->
-                    <ul class="flex grow justify-center items-center flex-col space-y-4 lg:space-y-0 lg:flex-row lg:space-x-2 lg:justify-end">
-                        <li class="text-sm text-gray-500 font-medium items-center flex xl:mr-10">
-                            <div
-                                x-data="{ open: false }"
-                                class="relative"
-                            >
-                                <button
-                                    x-on:click="open = true"
-                                    class="flex items-center mx-auto dark:text-white lg:dark:text-dark-100 hover:text-violet-600 focus:text-violet-600 dark:hover:text-white dark:focus:text-white group transition-all"
-                                    type="button"
-                                >
-                                    <svg class="fill-gray-500 dark:fill-white lg:dark:fill-dark-100 group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
-                                    </svg>
-                                    <span class="mx-1">English</span>
-                                    <svg class="fill-current h-4 w-4 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                                    </svg>
-                                </button>
-                                <ul
-                                    x-show="open"
-                                    x-on:click.away="open = false"
-                                    class="border-t sm:border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 sm:rounded shadow-lg left-0 top-full py-2 mt-1 z-20 lg:absolute"
-                                    style="min-width:15rem"
-                                >
-                                    <li>
-                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
-                                            Spanish
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
-                                            France
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
-                                            Ukrainian
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center w-max text-sm font-semibold px-3 py-1.5 rounded-md transition-all text-white bg-violet-600 hover:bg-violet-900 lg:text-violet-600 lg:bg-violet-100 lg:hover:bg-violet-200 lg:dark:text-white lg:dark:bg-neutral-600 lg:hover:dark:bg-neutral-700">
-                                <span class="pr-1 hidden md:block">For </span>Business
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center text-sm font-semibold text-white bg-violet-600 px-3 py-1.5 rounded-md hover:bg-violet-900 transition-all">
+                        <li class="w-full pt-24 lg:pt-0 lg:w-auto">
+                            <a href="#" class="flex items-center justify-center text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 lg:py-1.5 rounded-md hover:bg-violet-900 transition-all lg:hidden">
                                 Betaselect portal
                                 <svg class="w-3.5 h-3.5 ml-1 xl:ml-3.5"><use xlink:href='#link-ico'/></svg>
                             </a>
                         </li>
                     </ul>
                 </nav>
-
-                <div class="flex items-center space-x-4">
-                    <a href="#" class="flex items-center justify-center w-max text-sm font-semibold px-3 py-1.5 rounded-md transition-all text-white bg-violet-600 hover:bg-violet-900 lg:text-violet-600 lg:bg-violet-100 lg:hover:bg-violet-200 lg:hidden">
+                <div class="flex items-center space-x-4 lg:space-x-2">
+                    <div class="text-sm text-gray-500 font-medium items-center hidden sm:flex xl:mr-10">
+                        <div
+                            x-data="{ open: false }"
+                            class="relative"
+                        >
+                            <button
+                                x-on:click="open = true"
+                                class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 dark:text-white hover:dark:bg-neutral-700 lg:dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
+                                type="button"
+                            >
+                                <svg class="fill-gray-500 dark:fill-white lg:dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
+                                </svg>
+                                <span class="mx-1 hidden lg:flex">English</span>
+                                <span class="mx-1 block lg:hidden">En</span>
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                </svg>
+                            </button>
+                            <ul
+                                x-show="open"
+                                x-on:click.away="open = false"
+                                class="absolute border-t border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 rounded shadow-lg top-full py-2 mt-1 z-20"
+                            >
+                                <li>
+                                    <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                        Spanish
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                        France
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                        Ukrainian
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center w-max text-sm font-semibold px-3 py-1.5 rounded-md transition-all text-white bg-violet-600 hover:bg-violet-900 lg:text-violet-600 lg:bg-violet-100 lg:hover:bg-violet-200 lg:dark:text-white lg:dark:bg-neutral-600 lg:hover:dark:bg-neutral-700">
                         <span class="pr-1 hidden md:block">For </span>Business
+                    </a>
+                    <a href="#" class="hidden whitespace-nowrap items-center justify-center text-sm font-semibold text-white bg-violet-600 px-3 py-1.5 rounded-md hover:bg-violet-900 transition-all lg:flex">
+                        Betaselect portal
+                        <svg class="w-3.5 h-3.5 ml-1 xl:ml-3.5"><use xlink:href='#link-ico'/></svg>
                     </a>
                     <!-- Navbar Toggle Button -->
                     <button @click="showMenu = !showMenu" class="block lg:hidden z-20" type="button" aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
-                        <svg class="fill-gray-500 dark:fill-white" width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg  x-show="!showMenu" class="fill-gray-500 dark:fill-white" width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M0.800049 2.20001C0.800049 1.31635 1.51639 0.600006 2.40005 0.600006H21.6C22.4837 0.600006 23.2001 1.31635 23.2001 2.20001C23.2001 3.08366 22.4837 3.80001 21.6 3.80001H2.40005C1.51639 3.80001 0.800049 3.08366 0.800049 2.20001Z"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M0.800049 11.8C0.800049 10.9163 1.51639 10.2 2.40005 10.2H21.6C22.4837 10.2 23.2001 10.9163 23.2001 11.8C23.2001 12.6837 22.4837 13.4 21.6 13.4H2.40005C1.51639 13.4 0.800049 12.6837 0.800049 11.8Z"/>
                         </svg>
+                        <svg x-show="showMenu" class="fill-gray-500 dark:fill-white" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.868532 0.868532C1.49337 0.243693 2.50643 0.243693 3.13127 0.868532L9.9999 7.73716L16.8685 0.868532C17.4934 0.243693 18.5064 0.243693 19.1313 0.868532C19.7561 1.49337 19.7561 2.50643 19.1313 3.13127L12.2626 9.9999L19.1313 16.8685C19.7561 17.4934 19.7561 18.5064 19.1313 19.1313C18.5064 19.7561 17.4934 19.7561 16.8685 19.1313L9.9999 12.2626L3.13127 19.1313C2.50643 19.7561 1.49337 19.7561 0.868532 19.1313C0.243693 18.5064 0.243693 17.4934 0.868532 16.8685L7.73716 9.9999L0.868532 3.13127C0.243693 2.50643 0.243693 1.49337 0.868532 0.868532Z" />
+                        </svg>
                     </button>
                 </div>
-
             </div>
         </div>
     </header>
 
-    <section class="max-w-6xl mx-auto px-8 lg:px-16">
+    <section class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
         <div class="flex flex-wrap pt-6 pb-24 relative z-10">
             <h1 class="font-semibold leading-tight text-3xl mb-1 dark:text-white sm:text-4xl lg:leading-snug sm:mb-7">Betaselect vacancies</h1>
 
@@ -202,7 +200,7 @@
                         Engineer Electrical Engineering Instrumentation and Automation
                         <span class="text-sm text-gray-500 dark:text-dark-100 font-normal">1 day ago</span>
                     </h3>
-                    <div class="flex flex-col text-sm font-medium text-gray-500 dark:text-dark-100 px-0.5 mb-3 lg:flex-row lg:items-center">
+                    <div class="flex flex-col text-sm font-medium text-gray-500 dark:text-dark-100 px-0.5 mb-3 sm:flex-row sm:items-center">
                         <div class="flex items-center">
                             <div class="flex items-center">
                                 <div class="w-6 flex-none">
@@ -828,7 +826,7 @@
                 <div>
                     <label class="text-sm font-medium mb-1 px-1 hidden lg:flex">Search by role</label>
                     <div class="relative flex space-x-3">
-                        <input type="text" class="text-sm border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 pr-4 pl-9 focus:outline-none focus:shadow-outline placeholder:text-gray-1200 placeholder:dark:text-dark-100" placeholder="e.g. Mechanic" />
+                        <input type="text" class="text-sm border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 pr-4 pl-9 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100" placeholder="e.g. Mechanic" />
                         <button class="absolute top-3 left-0">
                             <svg class="fill-gray-500 dark:fill-white" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C3.79086 2 2 3.79086 2 6C2 8.20914 3.79086 10 6 10C8.20914 10 10 8.20914 10 6C10 3.79086 8.20914 2 6 2ZM0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6C12 7.29583 11.5892 8.49572 10.8907 9.47653L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L9.47653 10.8907C8.49572 11.5892 7.29583 12 6 12C2.68629 12 0 9.31371 0 6Z" />
@@ -936,8 +934,14 @@
                 <div class="flex-wrap justify-between items-center hidden sm:flex lg:hidden">
                     <div class="flex space-x-2">
                         <div x-data="{ openDropdown: false }" class="flex items-center relative" @click.away="openDropdown = false">
-                            <button @click="openDropdown = !openDropdown" :aria-expanded="openDropdown ? 'true' : 'false'" class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out border rounded-full px-3.5 py-2" aria-expanded="false">
-                                Office: <span class="text-gray-1100 dark:text-white ml-1">All</span>
+                            <button
+                                @click="openDropdown = !openDropdown" :aria-expanded="openDropdown ? 'true' : 'false'"
+                                :class="{ 'border-gray-1000': openDropdown }"
+                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 focus:border-gray-1000 transition duration-150 ease-in-out border rounded-full px-3.5 py-2"
+                                aria-expanded="false"
+                            >
+                                Office: 
+                                <span class="text-gray-1100 dark:text-white ml-1">All</span>
                                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2.5">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.097631 1.31658 -0.097631 1.70711 0.292893L5 3.58579L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L5.70711 5.70711C5.31658 6.09763 4.68342 6.09763 4.29289 5.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z" fill="#6B7280"></path>
                                 </svg>
@@ -945,20 +949,20 @@
                             <div class="absolute left-0 top-full w-56 origin-top-right rounded-md shadow-lg z-10 mt-1" x-show="openDropdown" style="display: none;">
                                 <ul class="space-y-4 rounded-md border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 p-4 ring-1 ring-black ring-opacity-5" role="menu">
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect1">
+                                        <input class="w-5 h-5 border border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect2_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2_1">
                                             Noord Holland
                                         </label>
                                     </li>
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect2">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect2_2">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2_2">
                                             Groningen
                                         </label>
                                     </li>
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect3">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect2_3">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2_3">
                                             Friesland
                                         </label>
                                     </li>
@@ -966,7 +970,12 @@
                             </div>
                         </div>
                         <div x-data="{ openDropdown2: false }" class="flex items-center relative" @click.away="openDropdown2 = false">
-                            <button @click="openDropdown2 = !openDropdown2" :aria-expanded="openDropdown2 ? 'true' : 'false'" class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out border rounded-full px-3.5 py-2" aria-expanded="false">
+                            <button 
+                                @click="openDropdown2 = !openDropdown2" :aria-expanded="openDropdown2 ? 'true' : 'false'"
+                                :class="{ 'border-gray-1000': openDropdown2 }"
+                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out border rounded-full px-3.5 py-2" 
+                                aria-expanded="false"
+                            >
                                 Category: <span class="text-gray-1100 dark:text-white ml-1">All</span>
                                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2.5">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.097631 1.31658 -0.097631 1.70711 0.292893L5 3.58579L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L5.70711 5.70711C5.31658 6.09763 4.68342 6.09763 4.29289 5.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z" fill="#6B7280"></path>
@@ -975,29 +984,29 @@
                             <div class="absolute left-0 top-full w-56 origin-top-right rounded-md shadow-lg z-10 mt-1" x-show="openDropdown2" style="display: none;">
                                 <ul class="space-y-4 rounded-md border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 p-4 ring-1 ring-black ring-opacity-5" role="menu">
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect4">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect4">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect4_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect4_1">
                                             <span>Uitvoering</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">59</span>
                                         </label>
                                     </li>
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect5">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect5">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect5_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect5_1">
                                             Engineering
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">19</span>
                                         </label>
                                     </li>
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect6">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect6">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect6_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect6_1">
                                             Management
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">22</span>
                                         </label>
                                     </li>
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect7">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect7">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect7_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect7_1">
                                             Technical office
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">4</span>
                                         </label>
@@ -1006,7 +1015,12 @@
                             </div>
                         </div>
                         <div x-data="{ openDropdown3: false }" class="flex items-center relative" @click.away="openDropdown3 = false">
-                            <button @click="openDropdown3 = !openDropdown3" :aria-expanded="openDropdown3 ? 'true' : 'false'" class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out border rounded-full px-3.5 py-2" aria-expanded="false">
+                            <button 
+                                @click="openDropdown3 = !openDropdown3" :aria-expanded="openDropdown3 ? 'true' : 'false'"
+                                :class="{ 'border-gray-1000': openDropdown3 }"
+                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out border rounded-full px-3.5 py-2"
+                                aria-expanded="false"
+                            >
                                 Job level: <span class="text-gray-1100 dark:text-white ml-1">All</span>
                                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2.5">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.097631 1.31658 -0.097631 1.70711 0.292893L5 3.58579L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L5.70711 5.70711C5.31658 6.09763 4.68342 6.09763 4.29289 5.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z" fill="#6B7280"></path>
@@ -1015,22 +1029,22 @@
                             <div class="absolute left-0 top-full w-56 origin-top-right rounded-md shadow-lg z-10 mt-1" x-show="openDropdown3" style="display: none;">
                                 <ul class="space-y-4 rounded-md border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 p-4 ring-1 ring-black ring-opacity-5" role="menu">
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect8">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect8">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect8_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect8_1">
                                             Starter
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">17</span>
                                         </label>
                                     </li>
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect9">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect9">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect9_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect9_1">
                                             Medior
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">80</span>
                                         </label>
                                     </li>
                                     <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect10">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect10">
+                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect10_1">
+                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect10_1">
                                             Senior
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">11</span>
                                         </label>
@@ -1064,20 +1078,20 @@
                         <h4 class="text-sm font-medium w-full block px-1">Office</h4>
                         <ul class="space-y-4">
                             <li class="flex items-center w-full">
-                                <input class="peer w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none form-checkbox text-violet-600" type="checkbox" value="" id="NoordHolland">
-                                <label class="inline-block text-sm ml-3" for="NoordHolland">
+                                <input class="peer w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none form-checkbox text-violet-600" type="checkbox" value="" id="checkSelect3_1">
+                                <label class="inline-block text-sm ml-3" for="checkSelect3_1">
                                     Noord Holland
                                 </label>
                             </li>
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect2">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_2">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_2">
                                     Groningen
                                 </label>
                             </li>
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_3">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_3">
                                     Friesland
                                 </label>
                             </li>
@@ -1088,29 +1102,29 @@
                         <h4 class="text-sm font-medium w-full block px-1">Category</h4>
                         <ul class="space-y-4">
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect4">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect4">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_4">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_4">
                                     <span>Uitvoering</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">59</span>
                                 </label>
                             </li>
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect5">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect5">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_5">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_5">
                                     Engineering
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">19</span>
                                 </label>
                             </li>
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect6">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect6">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_6">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_6">
                                     Management
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">22</span>
                                 </label>
                             </li>
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect7">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect7">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_7">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_7">
                                     Technical office
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">4</span>
                                 </label>
@@ -1122,22 +1136,22 @@
                         <h4 class="text-sm font-medium w-full block px-1">Job level</h4>
                         <ul class="space-y-4">
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect8">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect8">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_8">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_8">
                                     Starter
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">17</span>
                                 </label>
                             </li>
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect9">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect9">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_9">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_9">
                                     Medior
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">80</span>
                                 </label>
                             </li>
                             <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect10">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect10">
+                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_10">
+                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_10">
                                     Senior
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">11</span>
                                 </label>
@@ -1164,7 +1178,7 @@
     </section>
 
     <footer class="bg-white dark:bg-dark-theme dark:text-white pb-4 relative z-10">
-        <div class="max-w-6xl mx-auto px-8 lg:px-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
             <div class="flex flex-wrap border-t border-gray-300 dark:border-gray-60 py-6 space-y-8 sm:space-y-0 lg:py-10 lg:flex-nowrap lg:gap-x-16">
                 <div class="flex justify-between items-center w-full sm:mb-8 lg:mb-0 lg:flex-col lg:justify-start lg:items-start lg:w-52">
                     <!-- Logo -->

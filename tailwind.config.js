@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["*.html"],
-  darkMode: 'class',
+  // darkMode: 'class',
   theme: {
     extend: {
         fontFamily: {
@@ -17,6 +17,7 @@ module.exports = {
             1000: '#111827',
             1100: '#0E0E19',
             1200: '#616175',
+            1300: '#E6E5E5',
           },
           'dark': {
             100: '#AEAEAE',
@@ -37,7 +38,13 @@ module.exports = {
         borderWidth: {
           '3': '3px',
         },
+        boxShadow: {
+          'bottom': 'box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1)',
+        },
     },
+    // screens: {
+    //   'xs': '440px',
+    // },
 },
   plugins: [
     require('@tailwindcss/line-clamp'),
