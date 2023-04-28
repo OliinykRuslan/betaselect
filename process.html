@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -207,19 +207,17 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
             <div class="relative flex flex-wrap overflow-hidden md:gap-y-4">
 
-
-                <div x-data="scrollProgress()" x-init="init()" x-cloak class="fixed">
+                <!-- <div x-data="scrollProgress()" x-init="init()" x-cloak class="fixed">
                     <span class="absolute text-xl text-blue-700" x-text="`${percent}%`"></span>
-                </div>
-
+                </div> -->
 
                 <!-- progressline -->
                 <div x-data="scrollProgress()" x-init="init()" x-cloak class="absolute h-full bg-gray-95 dark:bg-gray-60 w-0.5 md:top-20 left-5 md:left-0 md:right-0 md:mx-auto">
-                    <div class="absolute bg-violet-600 dark:bg-violet-550 top-72 md:top-0 w-0.5" :style="`height: ${percent}%`"></div>
+                    <div class="absolute bg-violet-600 dark:bg-violet-550 top-64 sm:top-72 md:top-0 w-0.5" :style="`height: ${percent}%`"></div>
                 </div>
 
                 <!-- 1 -->
-                <div class="relative overflow-hidden flex flex-wrap justify-between w-full md:pl-0" id="getting-know">
+                <div class="relative overflow-hidden flex flex-wrap justify-between w-full md:pl-0 md:pb-6" id="getting-know">
                     <div class="w-full z-10 bg-white dark:bg-dark-theme md:dark:bg-transparent md:bg-transparent pl-12 pb-4 md:pb-0 sm:pl-16 md:pl-0 md:pr-6 md:w-1/2">
                         <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
                     </div>
@@ -249,7 +247,12 @@
                             </div>
                         </div>
                         <!-- 2 -->
-                        <span :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 9}" class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 opacity-100 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">2</span>
+                        <span 
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 9}" 
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 opacity-100 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            2
+                        </span>
                     </div>
                     <div class="w-full pl-12 sm:pl-16 md:pl-6 md:w-1/2">
                         <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
@@ -263,7 +266,7 @@
                     <div class="flex w-full py-4 md:py-0  md:pl-12 md:w-1/2 xl:px-4">
                         <!-- 3 -->
                         <span 
-                            x-data="{ visible: false }" x-intersect="visible = true"
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 24}"
                             class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 opacity-100 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
                         >
                             3
@@ -289,7 +292,11 @@
                                 </p>
                             </div>
                         </div>
-                        <span class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">4</span>
+                        <span 
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 38}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">
+                            4
+                        </span>
                     </div>
                     <div class="w-full pl-12 sm:pl-16 md:pl-6 md:w-1/2">
                         <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
@@ -301,7 +308,13 @@
                         <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
                     </div>
                     <div class="flex w-full py-4 md:py-0 md:pl-12 md:w-1/2 xl:px-4">
-                        <span class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">5</span>
+                        <span
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 53}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            5
+                        </span>
+
                         <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 md:max-w-md md:ml-auto md:mr-0">
                             <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Job interviews</h2>
                             <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
@@ -323,7 +336,12 @@
                                 </p>
                             </div>
                         </div>
-                        <span class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">6</span>
+                        <span 
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 68}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            6
+                        </span>
                     </div>
                     <div class="w-full pl-12 sm:pl-16 md:pl-6 md:w-1/2">
                         <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
@@ -331,11 +349,16 @@
                 </div>
                 <!-- 7 -->
                 <div class="relative flex flex-wrap justify-between w-full md:bg-white md:dark:bg-dark-theme" id="working-betaselect">
-                    <div class="relative overflow-hidden w-full pl-12 sm:pl-16 after:absolute after:w-0.5 after:h-full after:bg-gray-95 after:dark:bg-gray-60 after:left-5 after:top-0 after:z-0 md:after:hidden md:pl-0 md:pr-6 md:w-1/2">
+                    <div class="relative overflow-hidden w-full pl-12 sm:pl-16 after:absolute after:w-0.5 after:h-full after:bg-gray-95 after:dark:bg-gray-60 after:left-5 after:top-0 after:z-0 after:hidden md:pl-0 md:pr-6 md:w-1/2">
                         <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
                     </div>
                     <div class="flex w-full py-4 md:py-0 overflow-hidden bg-white dark:bg-dark-theme md:pl-12 md:w-1/2 xl:px-4">
-                        <span class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">7</span>
+                        <span
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 82}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            7
+                        </span>
                         <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 md:max-w-md md:ml-auto md:mr-0">
                             <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Working at Betaselect</h2>
                             <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
@@ -441,7 +464,6 @@
                     this.percent = Math.round((winScroll / height) * 100)
                 })
             },
-            // circumference: 30 * 2 * Math.PI,
             percent: 0,
         }
     }
