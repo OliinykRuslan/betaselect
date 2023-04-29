@@ -200,7 +200,7 @@
             </nav>
 
             <!-- left part -->
-            <div class="w-full order-2 lg:order-1 lg:w-2/3">
+            <div class="w-full lg:w-2/3">
                 <h1 class="font-semibold leading-tight text-3xl mb-1 dark:text-white lg:text-4xl lg:leading-snug sm:mb-2">Consultant Industry</h1>
                 <p class="text-sm text-violet-600 dark:text-violet-550 mb-4 lg:text-base">People-oriented organization, management, international organization</p>
 
@@ -319,7 +319,7 @@
                     </div>
                 </div>
 
-                <div class="text-base text-gray-900 dark:text-white space-y-8 leading-8 md:text-lg">
+                <div class="text-base text-gray-900 dark:text-white space-y-8 leading-8 md:text-lg md:leading-8">
                     <p>
                         Are you commercial, proactive and driven and do you want to work at a young and enterprising technical secondment agency? Then we would like to get in touch with you! We were founded 3 years ago and are growing rapidly. In the past year we have also been able to help many professionals find a job and we have started a collaboration with various new clients. To continue this growth in 2023, we are looking for internal reinforcement.
                     </p>
@@ -539,7 +539,7 @@
                         </div>
                     </div>
 
-                    <div class="pt-16 md:pt-24">
+                    <div class="pt-16">
                         <h2 class="text-center text-gray-1000 dark:text-white text-3xl font-semibold mb-7">
                             What other applicants say?
                         </h2>
@@ -609,28 +609,31 @@
             </div>
 
             <!-- right sidebar -->
-            <div class="w-full space-y-4 mb-8 order-1 lg:mb-0 lg:pl-5 lg:order-2 lg:w-1/3">
+            <div class="w-full space-y-4 mb-8 lg:mb-0 lg:pl-5 lg:w-1/3">
                 <div class="border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 py-3">
                     <h3 class="text-xl font-semibold mb-2 dark:text-white">Interested in vacancy?</h3>
                     <p class="text-sm text-gray-500 mb-5 dark:text-dark-100">Easy to apply, ready within 2 minutes!</p>
-                    <form class="grid grid-cols-2 gap-4">
-                        <div class="col-span-2 text-sm">
-                            <label for="email" class="flex font-medium mb-1 px-1 dark:text-white">Email</label>
-                            <input type="email" id="email" placeholder="" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100" />
-                        </div>
+                    <form class="flex flex-col gap-4">
 
-                        <div class="text-sm">
-                            <label for="" class="flex font-medium mb-1 px-1 dark:text-white">First name</label>
-                            <input type="text" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
-                        </div>
-                        <div class="text-sm">
-                            <label for="" class="flex font-medium mb-1 px-1 dark:text-white">Last name</label>
-                            <input type="text" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
-                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-sm order-3 col-span-2 sm:col-span-1 lg:col-span-2 lg:order-1">
+                                <label for="email" class="flex font-medium mb-1 px-1 dark:text-white">Email</label>
+                                <input type="email" id="email" placeholder="" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100" />
+                            </div>
 
-                        <div class="col-span-2 text-sm">
-                            <label for="phone" class="flex font-medium mb-1 px-1 dark:text-white">Phone number</label>
-                            <input type="text" id="phone" placeholder="+31 ( ) -" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"/>
+                            <div class="text-sm order-1 col-span-2 sm:col-span-1 lg:order-2">
+                                <label for="" class="flex font-medium mb-1 px-1 dark:text-white">First name</label>
+                                <input type="text" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
+                            </div>
+                            <div class="text-sm order-2 col-span-2 sm:col-span-1 lg:order-3">
+                                <label for="" class="flex font-medium mb-1 px-1 dark:text-white">Last name</label>
+                                <input type="text" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
+                            </div>
+
+                            <div class="text-sm order-4 col-span-2 sm:col-span-1 lg:col-span-2">
+                                <label for="phone" class="flex font-medium mb-1 px-1 dark:text-white">Phone number</label>
+                                <input type="text" id="phone" placeholder="+31 ( ) -" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"/>
+                            </div>
                         </div>
 
                         <!-- Drag & drop or click here to upload your file -->
@@ -697,10 +700,11 @@
                         </p>
                     </form>
                 </div>
-
-                <div class="border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 py-3 space-y-4 divide-y">
-                    <div class="space-y-4">
+                
+                <div class="flex flex-col border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 pt-3 pb-5 space-y-4 divide-y sm:space-x-8 sm:space-y-0 sm:flex-row sm:divide-y-0 lg:space-x-0 lg:flex-col lg:divide-y lg:space-y-4">
+                    <div class="space-y-4 md:flex-1">
                         <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase">Contact person</h4>
+                        
                         <div class="flex items-center">
                             <img class="w-12 h-12 outline outline-2 outline-offset-2 outline-violet-600 rounded-full" src="./images/avatar03.png" alt="">
                             <div class="flex flex-col ml-4">
@@ -716,13 +720,13 @@
                                 </div>
                             </div>
                             <a href="#" class="ml-auto mr-0">
-                                <svg class="fill-gray-500 dark:fill-[#0274B3]" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="fill-gray-500 dark:fill-blue-50" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.8333 0.5H2.16667C1.24583 0.5 0.5 1.24583 0.5 2.16667V13.8333C0.5 14.7542 1.24583 15.5 2.16667 15.5H13.8333C14.7542 15.5 15.5 14.7542 15.5 13.8333V2.16667C15.5 1.24583 14.7542 0.5 13.8333 0.5ZM5.5 12.1667H3.3975V6.33333H5.5V12.1667ZM4.41167 5.26417C3.76917 5.26417 3.34 4.83583 3.34 4.26417C3.34 3.6925 3.76833 3.26417 4.4825 3.26417C5.125 3.26417 5.55417 3.6925 5.55417 4.26417C5.55417 4.83583 5.12583 5.26417 4.41167 5.26417ZM13 12.1667H10.965V8.97833C10.965 8.09667 10.4225 7.89333 10.2192 7.89333C10.0158 7.89333 9.3375 8.02917 9.3375 8.97833C9.3375 9.11417 9.3375 12.1667 9.3375 12.1667H7.235V6.33333H9.3375V7.1475C9.60833 6.6725 10.1508 6.33333 11.1683 6.33333C12.1858 6.33333 13 7.1475 13 8.97833V12.1667Z"/>
                                 </svg>
                             </a>
                         </div>
                     </div>
-                    <div class="space-y-3 pt-3">
+                    <div class="space-y-3 pt-3 sm:pt-0 sm:flex-1 lg:pt-3">
                         <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase">got questions?</h4>
                         <a href="tel:0612345678" class="flex items-center">
                             <div class="w-6 mr-2 flex-none flex justify-center">
@@ -748,6 +752,8 @@
                         </a>
                     </div>
                 </div>
+
+
             </div>
 
         </div>
