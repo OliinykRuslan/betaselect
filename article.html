@@ -11,7 +11,7 @@
 <body class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme" x-data="{ showBar: false }">
     <!-- Site header -->
     <header
-        :class="{ 'border-b border-gray-300 dark:border-gray-60 shadow' : showBar }"
+        :class="{ 'border-b border-gray-300 dark:border-gray-60' : showBar }"
         class="w-full z-20 sticky top-0 bg-white dark:bg-dark-theme"
         @scroll.window="showBar = (window.pageYOffset > 20) ? true : false"
     >
@@ -106,16 +106,58 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="about.html" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 About Betaselect
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="contact.html" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 Contact us
                             </a>
                         </li>
                         <li class="w-full pt-24 lg:pt-0 lg:w-auto">
+                            <!-- lang mobile -->
+                            <div class="text-sm text-gray-500 font-medium mb-2 items-center justify-center flex sm:hidden">
+                                <div
+                                    x-data="{ open: false }"
+                                    class="relative"
+                                >
+                                    <button
+                                        x-on:click="open = true"
+                                        class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 hover:dark:bg-neutral-700 dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
+                                        type="button"
+                                    >
+                                        <svg class="fill-gray-500 dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
+                                        </svg>
+                                        <span class="mx-1">English</span>
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                        </svg>
+                                    </button>
+                                    <ul
+                                        x-show="open"
+                                        x-on:click.away="open = false"
+                                        class="absolute border-t border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 rounded shadow-lg top-full py-2 mt-1 z-20"
+                                    >
+                                        <li>
+                                            <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                                Spanish
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                                France
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                                Ukrainian
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <a href="#" class="flex items-center justify-center text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 lg:py-1.5 rounded-md hover:bg-violet-900 transition-all lg:hidden">
                                 Betaselect portal
                                 <svg class="w-3.5 h-3.5 ml-1 xl:ml-3.5"><use xlink:href='#link-ico'/></svg>
@@ -131,11 +173,11 @@
                         >
                             <button
                                 x-on:click="open = true"
-                                class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 dark:text-white hover:dark:bg-neutral-700 lg:dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
+                                class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 hover:dark:bg-neutral-700 dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
                                 type="button"
                             >
-                                <svg class="fill-gray-500 dark:fill-white lg:dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
+                                <svg class="fill-gray-500 dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
                                 </svg>
                                 <span class="mx-1 hidden lg:flex">English</span>
                                 <span class="mx-1 block lg:hidden">En</span>
@@ -192,8 +234,7 @@
         <div class="flex flex-wrap pt-6 pb-12 relative z-10">
 
             <!-- left part -->
-            <div class="w-full order-1 lg:w-2/3 mb-6 sm:mb-12 lg:mb-8">
-
+            <div class="w-full order-1 lg:w-2/3 mb-6 sm:mb-12 lg:mb-16">
                 <div class="flex items-center px-1 mb-7">
                     <img class="w-12 h-12 outline outline-2 outline-offset-2 outline-violet-600 rounded-full" src="./images/avatar03.png" alt="">
                     <div class="flex flex-col ml-4">
@@ -205,11 +246,10 @@
                         </p>
                     </div>
                 </div>
-
-                <h1 class="font-semibold leading-tight text-2.5xl mb-8 dark:text-white lg:text-3xl lg:leading-snug">Identify bad qualities in a job interview</h1>
-
+                <h1 class="font-semibold leading-tight text-2.5xl mb-8 dark:text-white lg:text-3xl lg:leading-snug">
+                    Identify bad qualities in a job interview
+                </h1>
                 <img class="w-full mb-8" src="./images/article-hero.png" alt="" />
-
                 <div class="text-base leading-8 text-gray-900 dark:text-white space-y-8 md:leading-8 md:text-lg">
                     <p>
                         "What are your good qualities?" 'Can you name some of your points for improvement?' Read how you can answer these (difficult) application questions.
@@ -220,14 +260,12 @@
                     <p>
                         Good preparation is also half the battle here. But how do you do that well?
                     </p>
-                    
                     <div class="space-y-3">
                         <h3 class="text-1xl font-semibold">Core qualities</h3>
                         <p>
                             It starts with mapping out your core qualities. They make you who you are. Also ask your partner. Or someone else who knows you well. Core qualities are often the positive things the other person says about you first when you ask them the question.
                         </p>
                     </div>
-
                     <div class="space-y-3">
                         <h3 class="text-1xl font-semibold">Pitfalls</h3>
                         <p>
@@ -246,7 +284,6 @@
                             </li>
                         </ul>
                     </div>
- 
                     <div class="space-y-3">
                         <h3 class="text-1xl font-semibold">Core quadrant model</h3>
                         <p>
@@ -254,7 +291,6 @@
                             Would you like to know more about this or have a look at your own core quadrants? Then look up Daniel Ofman's full core quadrant model via Google.
                         </p>
                     </div>
-
                     <div class="space-y-3">
                         <h3 class="text-1xl font-semibold">Do not forget!</h3>
                         <p>
@@ -267,11 +303,10 @@
                     <p>
                         Good luck in preparing for your job interview!
                     </p>
-
                     <div>
                         <div class="text-white bg-violet-600 px-6 py-6 rounded-2xl text-center flex flex-col justify-between items-center mt-12 sm:text-left sm:flex-row lg:mt-16 lg:mb-10">
                             <p class="text-2xl font-semibold max-w-xs pb-6 sm:pb-0 sm:pr-4">Ready to get started? Find your new job today.</p>
-                            <a href="#" class="text-center text-sm font-semibold text-violet-600 bg-white px-3 py-2.5 rounded-lg hover:bg-violet-200 transition-all">See all vacancies</a>
+                            <a href="vacancies.html" class="text-center text-sm font-semibold text-violet-600 bg-white px-3 py-2.5 rounded-lg hover:bg-violet-200 transition-all">See all vacancies</a>
                         </div>
                     </div>
                 </div>
@@ -280,8 +315,10 @@
             <!-- right sidebar -->
             <div class="w-full space-y-3 mb-16 order-2 lg:mb-0 lg:pl-5 lg:w-1/3">
                 <div class="border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 mb-8 px-4 py-3 space-y-4 lg:mb-6">
-                    <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase tracking-wider">More from marnix haitsma</h4>
-                    <div class="space-y-4 divide-y flex flex-col sm:space-y-0 sm:space-x-4 sm:divide-y-0 sm:flex-row lg:space-x-0 lg:flex-col lg:space-y-4 lg:divide-y">
+                    <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase tracking-wider">
+                        More from marnix haitsma
+                    </h4>
+                    <div class="space-y-4 divide-y divide-gray-85 dark:divide-gray-60 flex flex-col sm:space-y-0 sm:space-x-4 sm:divide-y-0 sm:flex-row lg:space-x-0 lg:flex-col lg:space-y-4 lg:divide-y">
                         <!-- 1 -->
                         <div class="flex justify-between gap-2 w-full sm:w-1/2 lg:w-full">
                             <div class="flex flex-col">
@@ -357,16 +394,16 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="flex items-center justify-center w-max mx-auto text-sm font-semibold px-3 py-2.5 rounded-md transition-all text-violet-600 bg-violet-100 hover:bg-violet-200 dark:text-white dark:bg-neutral-600 hover:dark:bg-neutral-700">Show more articles</a>
+                <a href="article.html" class="flex items-center justify-center w-max mx-auto text-sm font-semibold px-3 py-2.5 rounded-md transition-all text-violet-600 bg-violet-100 hover:bg-violet-200 dark:text-white dark:bg-neutral-600 hover:dark:bg-neutral-700">Show more articles</a>
             </div>
 
             <!-- left sidebar 2 -->
-            <div class="w-full space-y-6 order-3 lg:w-2/3">
-                <h2 class="text-2.5xl font-semibold leading-snug mb-5 dark:text-white pt-1 md:text-3xl">Related vacancies</h2>
+            <div class="w-full space-y-5 order-3 lg:w-2/3">
+                <h2 class="text-2.5xl font-semibold leading-snug dark:text-white md:text-3xl">Related vacancies</h2>
                 <!-- 1 -->
                 <div class="border rounded-2xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 py-3 row-span-2 relative">
                     <h3 class="flex justify-between text-gray-1000 dark:text-white text-xl lg:leading-tight font-semibold mb-3">
-                        Junior Service Mechanic Electrical Engineering
+                        <span class="line-clamp-2">Junior Service Mechanic Electrical Engineering</span>
                         <span class="text-sm text-gray-500 dark:text-dark-100 font-normal">1 day ago</span>
                     </h3>
                     <div class="flex flex-col text-sm font-medium text-gray-500 dark:text-dark-100 px-0.5 mb-3 sm:flex-row sm:items-center">
@@ -569,34 +606,29 @@
                         <svg class="fill-blue-50 dark:fill-white" width="40" height="40"><use xlink:href='#linkedin-ico'/></svg>
                     </a>
                 </div>
-
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Candidates</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Vacancies</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Articles</a></li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Contuct us</a></li>
+                    <li><a href="vacancies.html" class="hover:text-violet-550 transition-all">Vacancies</li>
+                    <li><a href="about.html" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
+                    <li><a href="article.html" class="hover:text-violet-550 transition-all">Articles</a></li>
+                    <li><a href="contact.html" class="hover:text-violet-550 transition-all">Contuct us</a></li>
                 </ul>
-
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">For businesses</li>
                     <li><a href="#" class="hover:text-violet-550 transition-all">Menu item 1</a></li>
                     <li><a href="#" class="hover:text-violet-550 transition-all">Menu item 2</a></li>
                 </ul>
-
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Betaselect</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
+                    <li><a href="about.html" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
                     <li><a href="#" class="hover:text-violet-550 transition-all">How we work</a></li>
                 </ul>
-
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Legal</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Terms & Conditions</a></li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html" class="hover:text-violet-550 transition-all">Terms & Conditions</a></li>
+                    <li><a href="privacy-policy.html" class="hover:text-violet-550 transition-all">Privacy Policy</a></li>
                 </ul>
             </div>
-
             <p class="text-center text-xs text-gray-400 dark:text-dark-100">© 2020 Betaselect B.V.  Alle rechten voorbehouden.</p>
         </div>
     </footer>

@@ -6,12 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Betaselect</title>
     <link href="./resources/output.css" rel="stylesheet">
+    <!-- custom checkbox -->
+    <style> 
+        input.chk-btn + label:active::after,
+        input.chk-btn:checked + label::after {
+            background-color: #7C3AED;
+        }
+        input.chk-btn:checked + label::before {
+            content: '';
+            position: absolute;
+            top: calc(50% - 5px);
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            z-index: 2;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCA4IDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDNMMyA1TDcgMSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K');
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
-<body x-data="{ showFilterModal: false, showBar: false }" :class="{ 'overflow-hidden': showFilterModal }" class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme">
+<body x-data="{ showFilterModal: false, showBar: false }" :class="{ 'overflow-hidden': showFilterModal }" class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme sm:overflow-visible">
     <!-- Site header -->
     <header
-        :class="[(showBar ? 'border-b border-gray-300 dark:border-gray-60 shadow' : ''), (showFilterModal ? 'z-10': 'z-20')]"
+        :class="[(showBar ? 'border-b border-gray-300 dark:border-gray-60' : ''), (showFilterModal ? 'z-10': 'z-20')]"
         class="w-full sticky top-0 bg-white dark:bg-dark-theme"
         @scroll.window="showBar = (window.pageYOffset > 20) ? true : false"
     >
@@ -27,7 +45,7 @@
                     id="navbar-main" x-cloak
                 >
                     <ul class="flex justify-start items-start px-4 grow origin-top z-10 flex-col space-y-4 lg:px-0 lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-center xl:space-x-7">
-                        <li class="text-sm text-gray-500 dark:text-white lg:dark:text-dark-100 font-medium">
+                        <li class="text-sm text-gray-500 dark:text-white lg:dark:text-dark-100 font-medium w-full sm:w-auto">
                             <div
                                 x-data="{ open: false }"
                                 class="relative"
@@ -66,7 +84,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="text-sm text-gray-500 dark:text-white lg:dark:text-dark-100 font-medium">
+                        <li class="text-sm text-gray-500 dark:text-white lg:dark:text-dark-100 font-medium w-full sm:w-auto">
                             <div
                                 x-data="{ open: false }"
                                 class="relative"
@@ -106,16 +124,58 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="about.html" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 About Betaselect
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="contact.html" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 Contact us
                             </a>
                         </li>
                         <li class="w-full pt-24 lg:pt-0 lg:w-auto">
+                            <!-- lang mobile -->
+                            <div class="text-sm text-gray-500 font-medium mb-2 items-center justify-center flex sm:hidden">
+                                <div
+                                    x-data="{ open: false }"
+                                    class="relative"
+                                >
+                                    <button
+                                        x-on:click="open = true"
+                                        class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 hover:dark:bg-neutral-700 dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
+                                        type="button"
+                                    >
+                                        <svg class="fill-gray-500 dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
+                                        </svg>
+                                        <span class="mx-1">English</span>
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                        </svg>
+                                    </button>
+                                    <ul
+                                        x-show="open"
+                                        x-on:click.away="open = false"
+                                        class="absolute border-t border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 rounded shadow-lg top-full py-2 mt-1 z-20"
+                                    >
+                                        <li>
+                                            <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                                Spanish
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                                France
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                                Ukrainian
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <a href="#" class="flex items-center justify-center text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 lg:py-1.5 rounded-md hover:bg-violet-900 transition-all lg:hidden">
                                 Betaselect portal
                                 <svg class="w-3.5 h-3.5 ml-1 xl:ml-3.5"><use xlink:href='#link-ico'/></svg>
@@ -131,10 +191,10 @@
                         >
                             <button
                                 x-on:click="open = true"
-                                class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 dark:text-white hover:dark:bg-neutral-700 lg:dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
+                                class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 hover:dark:bg-neutral-700 dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
                                 type="button"
                             >
-                                <svg class="fill-gray-500 dark:fill-white lg:dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="fill-gray-500 dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
                                 </svg>
                                 <span class="mx-1 hidden lg:flex">English</span>
@@ -190,8 +250,9 @@
 
     <section class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
         <div class="flex flex-wrap pt-6 pb-24 relative z-10">
-            <h1 class="font-semibold leading-tight text-3xl mb-1 dark:text-white sm:text-4xl lg:leading-snug sm:mb-7">Betaselect vacancies</h1>
-
+            <h1 class="font-semibold leading-tight text-3xl mb-1 dark:text-white sm:text-4xl lg:leading-snug sm:mb-7">
+                Betaselect vacancies
+            </h1>
             <!-- left part -->
             <div class="w-full space-y-6 order-2 lg:order-1 lg:w-3/4">
                 <!-- 1 -->
@@ -820,7 +881,6 @@
                     </button>
                 </div>
             </div>
-
             <!-- right sidebar -->
             <div class="w-full space-y-6 mb-8 order-1 lg:mb-0 lg:pl-5 lg:order-2 lg:w-1/4">
                 <div>
@@ -847,21 +907,21 @@
                     <div class="px-4 space-y-3 sm:px-0">
                         <h4 class="text-sm font-medium w-full block px-1">Office</h4>
                         <ul class="space-y-4">
-                            <li class="flex items-center w-full">
-                                <input class="peer w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none form-checkbox text-violet-600" type="checkbox" value="" id="NoordHolland">
-                                <label class="inline-block text-sm ml-3" for="NoordHolland">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect1' class='hidden chk-btn'>
+                                <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect1'>
                                     Noord Holland
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect2">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect2' class='hidden chk-btn'>
+                                <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect2'>
                                     Groningen
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3' class='hidden chk-btn'>
+                                <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3'>
                                     Friesland
                                 </label>
                             </li>
@@ -871,31 +931,31 @@
                     <div class="px-4 space-y-3 sm:px-0">
                         <h4 class="text-sm font-medium w-full block px-1">Category</h4>
                         <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect4">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect4">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect4' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect4'>
                                     <span>Uitvoering</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">59</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect5">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect5">
-                                    Engineering
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect5' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect5'>
+                                    <span>Engineering</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">19</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect6">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect6">
-                                    Management
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect6' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect6'>
+                                    <span>Management</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">22</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect7">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect7">
-                                    Technical office
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect7' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect7'>
+                                    <span>Technical office</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">4</span>
                                 </label>
                             </li>
@@ -905,24 +965,24 @@
                     <div class="px-4 space-y-3 sm:px-0">
                         <h4 class="text-sm font-medium w-full block px-1">Job level</h4>
                         <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect8">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect8">
-                                    Starter
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect8' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect8'>
+                                    <span>Starter</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">17</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect9">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect9">
-                                    Medior
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect9' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect9'>
+                                    <span>Medior</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">80</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect10">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect10">
-                                    Senior
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect10' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect10'>
+                                    <span>Senior</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">11</span>
                                 </label>
                             </li>
@@ -936,8 +996,8 @@
                         <div x-data="{ openDropdown: false }" class="flex items-center relative" @click.away="openDropdown = false">
                             <button
                                 @click="openDropdown = !openDropdown" :aria-expanded="openDropdown ? 'true' : 'false'"
-                                :class="{ 'border-gray-1000': openDropdown }"
-                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 focus:border-gray-1000 transition duration-150 ease-in-out border rounded-full px-3.5 py-2"
+                                :class="{ 'border-gray-1000 dark:border-white': openDropdown }"
+                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 dark:hover:text-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-1000 transition duration-150 ease-in-out border rounded-full px-3.5 py-2 dark:border-gray-60 dark:bg-dark-200"
                                 aria-expanded="false"
                             >
                                 Office: 
@@ -948,21 +1008,21 @@
                             </button>
                             <div class="absolute left-0 top-full w-56 origin-top-right rounded-md shadow-lg z-10 mt-1" x-show="openDropdown" style="display: none;">
                                 <ul class="space-y-4 rounded-md border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 p-4 ring-1 ring-black ring-opacity-5" role="menu">
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect2_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2_1">
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect2_1' class='hidden chk-btn'>
+                                        <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect2_1'>
                                             Noord Holland
                                         </label>
                                     </li>
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect2_2">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2_2">
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect2_2' class='hidden chk-btn'>
+                                        <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect2_2'>
                                             Groningen
                                         </label>
                                     </li>
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect2_3">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect2_3">
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect2_3' class='hidden chk-btn'>
+                                        <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect2_3'>
                                             Friesland
                                         </label>
                                     </li>
@@ -972,8 +1032,8 @@
                         <div x-data="{ openDropdown2: false }" class="flex items-center relative" @click.away="openDropdown2 = false">
                             <button 
                                 @click="openDropdown2 = !openDropdown2" :aria-expanded="openDropdown2 ? 'true' : 'false'"
-                                :class="{ 'border-gray-1000': openDropdown2 }"
-                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out border rounded-full px-3.5 py-2" 
+                                :class="{ 'border-gray-1000 dark:border-white': openDropdown2 }"
+                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 dark:hover:text-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 transition duration-150 ease-in-out border rounded-full px-3.5 py-2 dark:border-gray-60 dark:bg-dark-200" 
                                 aria-expanded="false"
                             >
                                 Category: <span class="text-gray-1100 dark:text-white ml-1">All</span>
@@ -983,31 +1043,31 @@
                             </button>
                             <div class="absolute left-0 top-full w-56 origin-top-right rounded-md shadow-lg z-10 mt-1" x-show="openDropdown2" style="display: none;">
                                 <ul class="space-y-4 rounded-md border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 p-4 ring-1 ring-black ring-opacity-5" role="menu">
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect4_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect4_1">
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect4_1' class='hidden chk-btn'>
+                                        <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect4_1'>
                                             <span>Uitvoering</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">59</span>
                                         </label>
                                     </li>
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect5_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect5_1">
-                                            Engineering
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect5_1' class='hidden chk-btn'>
+                                        <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect5_1'>
+                                            <span>Engineering</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">19</span>
                                         </label>
                                     </li>
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect6_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect6_1">
-                                            Management
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect6_1' class='hidden chk-btn'>
+                                        <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect6_1'>
+                                            <span>Management</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">22</span>
                                         </label>
                                     </li>
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect7_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect7_1">
-                                            Technical office
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect7_1' class='hidden chk-btn'>
+                                        <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect7_1'>
+                                            <span>Technical office</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">4</span>
                                         </label>
                                     </li>
@@ -1017,8 +1077,8 @@
                         <div x-data="{ openDropdown3: false }" class="flex items-center relative" @click.away="openDropdown3 = false">
                             <button 
                                 @click="openDropdown3 = !openDropdown3" :aria-expanded="openDropdown3 ? 'true' : 'false'"
-                                :class="{ 'border-gray-1000': openDropdown3 }"
-                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out border rounded-full px-3.5 py-2"
+                                :class="{ 'border-gray-1000 dark:border-white': openDropdown3 }"
+                                class="h-full inline-flex items-center text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 dark:text-dark-100 dark:hover:text-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 transition duration-150 ease-in-out border rounded-full px-3.5 py-2 dark:border-gray-60 dark:bg-dark-200"
                                 aria-expanded="false"
                             >
                                 Job level: <span class="text-gray-1100 dark:text-white ml-1">All</span>
@@ -1028,24 +1088,24 @@
                             </button>
                             <div class="absolute left-0 top-full w-56 origin-top-right rounded-md shadow-lg z-10 mt-1" x-show="openDropdown3" style="display: none;">
                                 <ul class="space-y-4 rounded-md border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 p-4 ring-1 ring-black ring-opacity-5" role="menu">
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect8_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect8_1">
-                                            Starter
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect8_1' class='hidden chk-btn'>
+                                        <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect8_1'>
+                                            <span>Starter</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">17</span>
                                         </label>
                                     </li>
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect9_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect9_1">
-                                            Medior
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect9_1' class='hidden chk-btn'>
+                                        <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect9_1'>
+                                            <span>Medior</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">80</span>
                                         </label>
                                     </li>
-                                    <li class="flex items-center">
-                                        <input class="w-5 h-5 border-gray-300 dark:border-gray-60 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none accent-violet-600" type="checkbox" id="checkSelect10_1">
-                                        <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect10_1">
-                                            Senior
+                                    <li class="flex items-center w-full relative">
+                                        <input type="checkbox" id='checkSelect10_1' class='hidden chk-btn'>
+                                        <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect10_1'>
+                                            <span>Senior</span>
                                             <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">11</span>
                                         </label>
                                     </li>
@@ -1064,7 +1124,7 @@
 
                 <!-- mobile filter -->
                 <div x-show="showFilterModal" class="bg-white dark:bg-dark-theme dark:text-white space-y-7 fixed bottom-0 left-0 right-0 z-50 rounded-t-lg sm:hidden" x-cloak>
-                    <h4 class="text-center text-base leading-none font-semibold border-b border-gray-300 pt-4 pb-4 relative sm:hidden">
+                    <h4 class="text-center text-base leading-none font-semibold border-b border-gray-300 pt-4 pb-4 relative dark:border-gray-60 sm:hidden">
                         Filters
                         <!-- mobile close button -->
                         <span class="absolute z-50 top-5 right-5 cursor-pointer" @click="showFilterModal = !showFilterModal">
@@ -1077,21 +1137,21 @@
                     <div class="px-4 space-y-3 sm:px-0">
                         <h4 class="text-sm font-medium w-full block px-1">Office</h4>
                         <ul class="space-y-4">
-                            <li class="flex items-center w-full">
-                                <input class="peer w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none form-checkbox text-violet-600" type="checkbox" value="" id="checkSelect3_1">
-                                <label class="inline-block text-sm ml-3" for="checkSelect3_1">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_1' class='hidden chk-btn'>
+                                <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_1'>
                                     Noord Holland
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_2">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_2">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_2' class='hidden chk-btn'>
+                                <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_2'>
                                     Groningen
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_3">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_3">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_3' class='hidden chk-btn'>
+                                <label class="text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_3'>
                                     Friesland
                                 </label>
                             </li>
@@ -1101,31 +1161,31 @@
                     <div class="px-4 space-y-3 sm:px-0">
                         <h4 class="text-sm font-medium w-full block px-1">Category</h4>
                         <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_4">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_4">
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_4' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_4'>
                                     <span>Uitvoering</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">59</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_5">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_5">
-                                    Engineering
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_5' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_5'>
+                                    <span>Engineering</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">19</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_6">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_6">
-                                    Management
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_6' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_6'>
+                                    <span>Management</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">22</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_7">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_7">
-                                    Technical office
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_7' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_7'>
+                                    <span>Technical office</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">4</span>
                                 </label>
                             </li>
@@ -1135,24 +1195,24 @@
                     <div class="px-4 space-y-3 sm:px-0">
                         <h4 class="text-sm font-medium w-full block px-1">Job level</h4>
                         <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_8">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_8">
-                                    Starter
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_8' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_8'>
+                                    <span>Starter</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">17</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_9">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_9">
-                                    Medior
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_9' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_9'>
+                                    <span>Medior</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">80</span>
                                 </label>
                             </li>
-                            <li class="flex items-center">
-                                <input class="w-5 h-5 border-gray-300 rounded accent-violet-600 focus:ring-0 focus:ring-offset-0 focus:outline-none" type="checkbox" id="checkSelect3_10">
-                                <label class="flex items-center justify-between flex-1 text-sm ml-3" for="checkSelect3_10">
-                                    Senior
+                            <li class="flex items-center w-full relative">
+                                <input type="checkbox" id='checkSelect3_10' class='hidden chk-btn'>
+                                <label class="flex items-center justify-between flex-1 text-sm pl-8 rounded cursor-pointer after:content-[''] after:left-0 after:top-0  after:absolute after:w-5 after:h-5 after:border after:border-neutral-300 after:rounded after:transition-all dark:after:border-gray-60 dark:after:bg-dark-200" for='checkSelect3_10'>
+                                    <span>Senior</span>
                                     <span class="text-xs text-gray-500 font-semibold bg-gray-80 dark:text-white dark:bg-gray-60 rounded-full py-0.5 px-1.5">11</span>
                                 </label>
                             </li>
@@ -1194,10 +1254,10 @@
                 </div>
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Candidates</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Vacancies</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Articles</a></li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Contuct us</a></li>
+                    <li><a href="vacancies.html" class="hover:text-violet-550 transition-all">Vacancies</li>
+                    <li><a href="about.html" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
+                    <li><a href="article.html" class="hover:text-violet-550 transition-all">Articles</a></li>
+                    <li><a href="contact.html" class="hover:text-violet-550 transition-all">Contuct us</a></li>
                 </ul>
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">For businesses</li>
@@ -1206,13 +1266,13 @@
                 </ul>
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Betaselect</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
+                    <li><a href="about.html" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
                     <li><a href="#" class="hover:text-violet-550 transition-all">How we work</a></li>
                 </ul>
                 <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
                     <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Legal</li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Terms & Conditions</a></li>
-                    <li><a href="#" class="hover:text-violet-550 transition-all">Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html" class="hover:text-violet-550 transition-all">Terms & Conditions</a></li>
+                    <li><a href="privacy-policy.html" class="hover:text-violet-550 transition-all">Privacy Policy</a></li>
                 </ul>
             </div>
             <p class="text-center text-xs text-gray-400 dark:text-dark-100">© 2020 Betaselect B.V.  Alle rechten voorbehouden.</p>

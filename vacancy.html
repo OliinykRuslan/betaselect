@@ -11,7 +11,7 @@
 <body class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme" x-data="{ showBar: false }">
     <!-- Site header -->
     <header
-        :class="{ 'border-b border-gray-300 dark:border-gray-60 shadow' : showBar }"
+        :class="{ 'border-b border-gray-300 dark:border-gray-60' : showBar }"
         class="w-full z-20 sticky top-0 bg-white dark:bg-dark-theme"
         @scroll.window="showBar = (window.pageYOffset > 20) ? true : false"
     >
@@ -106,12 +106,12 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="about.html" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 About Betaselect
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                            <a href="contact.html" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
                                 Contact us
                             </a>
                         </li>
@@ -190,7 +190,6 @@
 
     <section class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
         <div class="flex flex-wrap pt-6 pb-12 relative z-10">
-
             <nav class="rounded-md w-full mb-3">
                 <ol class="flex text-xs text-gray-500">
                   <li><a href="#" class="text-gray-500 dark:text-dark-100 hover:text-violet-600 dark:hover:text-violet-550 underline">Vacancies</a></li>
@@ -198,7 +197,6 @@
                   <li class="text-gray-900 dark:text-white">Consultant Industry</li>
                 </ol>
             </nav>
-
             <!-- left part -->
             <div class="w-full lg:w-2/3">
                 <h1 class="font-semibold leading-tight text-3xl mb-1 dark:text-white lg:text-4xl lg:leading-snug sm:mb-2">Consultant Industry</h1>
@@ -247,22 +245,22 @@
                     
                     <p class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-3">Quick links</p>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pb-4 mb-4 border-b border-gray-55 dark:border-gray-60">
-                        <div class="flex">
+                        <a href="#what-you-going" class="flex">
                             <span class="w-5 h-5 p-2 flex items-center justify-center text-xs text-white font-semibold bg-violet-600 rounded-full">1</span>
                             <span class="text-sm underline text-gray-900 dark:text-white pl-3">What are you going to do?</span>
-                        </div>
-                        <div class="flex">
+                        </a>
+                        <a href="#where-end-up" class="flex">
                             <span class="w-5 h-5 p-2 flex items-center justify-center text-xs text-gray-500 dark:text-white font-semibold bg-gray-80 dark:bg-gray-60 rounded-full mr-2">2</span>
                             <span class="text-sm text-gray-900 dark:text-white pl-1.5">This is where you end up</span>
-                        </div>
-                        <div class="flex">
+                        </a>
+                        <a href="#make-difference" class="flex">
                             <span class="w-5 h-5 p-2 flex items-center justify-center text-xs text-gray-500 dark:text-white font-semibold bg-gray-80 dark:bg-gray-60 rounded-full mr-2">3</span>
                             <span class="text-sm text-gray-900 dark:text-white pl-1.5">When do you make the differ...</span>
-                        </div>
-                        <div class="flex">
+                        </a>
+                        <a href="#have-offer" class="flex">
                             <span class="w-5 h-5 p-2 flex items-center justify-center text-xs text-gray-500 dark:text-white font-semibold bg-gray-80 dark:bg-gray-60 rounded-full mr-2">4</span>
-                            <span class="text-sm text-gray-900 dark:text-white pl-1.5">When do you make the differ...</span>
-                        </div>
+                            <span class="text-sm text-gray-900 dark:text-white pl-1.5">What do we have to offer you</span>
+                        </a>
                     </div>
 
                     <div class="pb-4 mb-4 border-b border-gray-55 dark:border-gray-60">
@@ -327,7 +325,7 @@
                         We are looking for a commercial and driven Industry Consultant for our growing office in Zaandam.
                     </p>
 
-                    <h3 class="text-xl font-semibold">What are you going to do</h3>
+                    <h3 id="what-you-going" class="text-xl font-semibold">What are you going to do</h3>
                     <p>
                         As a Junior Industry Consultant you will be part of a small team of experienced consultants. We will help you build long-term relationships with technical companies, build a network with highly educated technical professionals and become a specialist in (technical) secondment. In short, an investment for the long term!
                     </p>
@@ -380,7 +378,7 @@
                             Supporting them when they start working for our clients, job done!
                         </li>
                     </ul>
-                    <h3 class="text-xl font-semibold">This is where you end up</h3>
+                    <h3 id="where-end-up" class="text-xl font-semibold">This is where you end up</h3>
                     <p>
                         We are Betaselect, a technical secondment agency founded in 2020 with offices in Zaandam and Groningen. You will work at our office in Zaandam in the team together with Kim Oostendorp, Marnix Haitsma and Kevin Overtoom. We all have many years of experience in technical secondment and are working with great enthusiasm to put Betaselect on the map.
                     </p>
@@ -388,9 +386,8 @@
                         Together we will continue to build in 2023, with our ambition to quickly grow into a fully-fledged team. From our office in Zaandam we work in the provinces of North Holland, Flevoland, Utrecht and South Holland. Your clients will therefore mainly be located in this region, we recruit the technical professionals both nationally and worldwide!
                     </p>
 
-                    <!--  -->
                     <div class="bg-gray-1400 dark:bg-dark-200 rounded-2xl py-6 px-4 -mx-4">
-                        <h3 class="text-xl font-semibold mb-8">When do you make the difference?</h3>
+                        <h3 id="make-difference" class="text-xl font-semibold mb-8">When do you make the difference?</h3>
                         <p class="mb-8">
                             You are naturally interested in people and find it a challenge to bring supply and demand together. You will not find the sheep with the 5 legs. It is therefore up to you to make the best possible match based on skills, norms and values ​​and cognition.
                         </p>
@@ -419,7 +416,7 @@
                         </ul>
                     </div>
 
-                    <h3 class="text-xl font-semibold">What do we have to offer you?</h3>
+                    <h3 id="have-offer" class="text-xl font-semibold">What do we have to offer you?</h3>
                     <p>
                         We offer you a job in which you can develop and become a specialist within technical secondment. You will learn a lot about the technology, the technical companies and get to know many technical professionals. In addition, we invest in you and ensure that you become well versed in our services, laws and regulations, safety and building relationships.
                     </p>
@@ -607,9 +604,8 @@
 
                 </div>
             </div>
-
             <!-- right sidebar -->
-            <div class="w-full space-y-4 mb-8 lg:mb-0 lg:pl-5 lg:w-1/3">
+            <div class="w-full space-y-4 mb-8 lg:mb-0 lg:pl-5 lg:w-1/3 lg:sticky">
                 <div class="border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 py-3">
                     <h3 class="text-xl font-semibold mb-2 dark:text-white">Interested in vacancy?</h3>
                     <p class="text-sm text-gray-500 mb-5 dark:text-dark-100">Easy to apply, ready within 2 minutes!</p>
@@ -684,7 +680,7 @@
                             </div>
                         </div>
 
-                        <span class="col-span-2 text-xs font-medium dark:text-white bg-violet-100/80 dark:bg-gray-60 px-4 py-2.5 -mt-1 rounded-lg flex items-center w-full hover:bg-violet-200 cursor-pointer transition-all">
+                        <span class="col-span-2 text-xs font-medium dark:text-white bg-violet-100/80 dark:bg-gray-60 px-4 py-2.5 -mt-1 rounded-lg flex items-center w-full">
                             <svg class="fill-violet-600 dark:fill-white mr-1" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4001 7.00001C13.4001 10.5346 10.5347 13.4 7.0001 13.4C3.46548 13.4 0.600098 10.5346 0.600098 7.00001C0.600098 3.46538 3.46548 0.600006 7.0001 0.600006C10.5347 0.600006 13.4001 3.46538 13.4001 7.00001ZM7.8001 3.80001C7.8001 4.24183 7.44192 4.60001 7.0001 4.60001C6.55827 4.60001 6.2001 4.24183 6.2001 3.80001C6.2001 3.35818 6.55827 3.00001 7.0001 3.00001C7.44192 3.00001 7.8001 3.35818 7.8001 3.80001ZM6.2001 6.20001C5.75827 6.20001 5.4001 6.55818 5.4001 7.00001C5.4001 7.44183 5.75827 7.80001 6.2001 7.80001V10.2C6.2001 10.6418 6.55827 11 7.0001 11H7.8001C8.24192 11 8.6001 10.6418 8.6001 10.2C8.6001 9.75818 8.24192 9.40001 7.8001 9.40001V7.00001C7.8001 6.55818 7.44192 6.20001 7.0001 6.20001H6.2001Z"/>
                             </svg>
@@ -701,7 +697,7 @@
                     </form>
                 </div>
                 
-                <div class="flex flex-col border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 pt-3 pb-5 space-y-4 divide-y sm:space-x-8 sm:space-y-0 sm:flex-row sm:divide-y-0 lg:space-x-0 lg:flex-col lg:divide-y lg:space-y-4">
+                <div class="flex flex-col border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 pt-3 pb-5 space-y-4 divide-y divide-gray-85 dark:divide-gray-60 sm:space-x-8 sm:space-y-0 sm:flex-row sm:divide-y-0 lg:space-x-0 lg:flex-col lg:divide-y lg:space-y-4">
                     <div class="space-y-4 md:flex-1">
                         <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase">Contact person</h4>
                         
@@ -755,7 +751,6 @@
 
 
             </div>
-
         </div>
     </section>
 

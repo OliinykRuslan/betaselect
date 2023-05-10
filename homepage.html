@@ -11,7 +11,7 @@
 <body class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme" x-data="{ showBar: false }">
     <!-- Site header -->
     <header
-        :class="{ 'border-b border-gray-300 dark:border-gray-60 shadow' : showBar }"
+        :class="{ 'border-b border-gray-85 dark:border-gray-60' : showBar }"
         class="w-full z-20 sticky top-0 bg-white dark:bg-dark-theme"
         @scroll.window="showBar = (window.pageYOffset > 20) ? true : false"
     >
@@ -190,10 +190,12 @@
 
     <section class="relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
-            <div class="grid md:grid-cols-2 items-center gap-6 pt-8 pb-12 lg:pb-9 lg:pt-16">
-                <div class="flex flex-col mb-5 text-center md:text-left">
-                    <h1 class="font-semibold leading-tight text-3xl mb-1 dark:text-white sm:text-4xl lg:text-5xl lg:leading-snug lg:mb-1.5">Some headline about Betaselect</h1>
-                    <p class="text-base mb-8 lg:pr-8">Also some additional text here about our values or some brief message for our newcomers</p>
+            <div class="grid md:grid-cols-2 items-center gap-6 pt-8 pb-5 md:pb-12 lg:pb-20 lg:pt-16">
+                <div class="flex flex-col mb-5 text-center md:text-left order-2 md:order-1 lg:mb-0">
+                    <h1 class="font-semibold leading-tight text-3xl mb-1 dark:text-white sm:text-4xl lg:text-5xl lg:leading-snug lg:mb-1.5">
+                        Some headline about Betaselect
+                    </h1>
+                    <p class="text-base text-gray-500 mb-8 dark:text-dark-100 lg:pr-8">Also some additional text here about our values or some brief message for our newcomers</p>
                     <div class="flex justify-center space-x-3 md:justify-start">
                         <a class="flex items-center justify-center w-max whitespace-nowrap text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 rounded-lg hover:bg-violet-900 transition-all" href="#">
                             Search for Vacancies
@@ -201,16 +203,16 @@
                         <a class="flex items-center justify-center w-max whitespace-nowrap text-sm font-semibold text-violet-600 bg-violet-100 px-4 py-2.5 rounded-lg hover:bg-violet-200 dark:text-white dark:bg-neutral-600 hover:dark:bg-neutral-700 transition-all" href="#">Lean more</a>
                     </div>
                 </div>
-                <div class="w-full max-w-xs md:max-w-full mx-auto hidden md:block">
-                    <img src="./images/hero-illustration.svg" width="477" height="341" alt="Hero Illustration" class="mx-auto">
+                <div class="w-full max-w-xs md:max-w-full mx-auto order-1 md:order-2">
+                    <img src="./images/homepage-hero.svg" alt="Hero Illustration" class="mx-auto">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pb-20 lg:pb-24">
+    <section class="pb-10 md:pb-20 lg:pb-24">
         <h2 class="text-center text-gray-500 dark:text-dark-100 uppercase font-semibold text-xs mb-6">Our partners</h2>
-        <div class="max-w-6xl mx-auto px-2 overflow-hidden lg:px-24">
+        <div class="max-w-6xl mx-auto px-4 overflow-hidden sm:px-8 lg:px-24">
             <div class="flex justify-between items-center overflow-x-auto gap-6">
                 <img src="./images/fokker-ico.svg" alt="fokker">
                 <img src="./images/bilfinger-ico.svg" alt="bilfinger">
@@ -222,30 +224,27 @@
         </div>
     </section>
 
-    <section class="pt-1 pb-24 lg:pt-2">
+    <section class="pt-1 pb-10 md:pb-24 lg:pt-2">
         <div class="max-w-6xl mx-auto px-4 sm:px-14 lg:px-20">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 place-items-center text-center lg:gap-16">
+            <div class="grid grid-cols-2 gap-x-6 gap-10 place-items-center text-center md:grid-cols-4 lg:gap-16">
                 <div>
                     <h2 class="font-bold mb-3 text-4xl leading-none dark:text-white lg:mb-4 lg:text-5xl">114</h2>
                     <p class="text-gray-500 dark:text-dark-100 text-base lg:px-8">
                         Open vacancies right now
                     </p>
                 </div>
-
                 <div>
                     <h2 class="font-bold mb-3 text-4xl leading-none dark:text-white lg:mb-4 lg:text-5xl">7</h2>
                     <p class="text-gray-500 dark:text-dark-100 text-base lg:px-8">
                         Nationalities work with us
                     </p>
                 </div>
-
                 <div>
                     <h2 class="font-bold mb-3 text-4xl leading-none dark:text-white lg:mb-4 lg:text-5xl">600+</h2>
                     <p class="text-gray-500 dark:text-dark-100 text-base lg:px-4">
                         Arranged interviews since start
                     </p>
                 </div>
-
                 <div>
                     <h2 class="font-bold leading-none dark:text-white mb-0 text-3xl">
                         4.6
@@ -275,14 +274,13 @@
         </div>
     </section>
 
-    <section class="pt-1 pb-24 lg:pt-0">
+    <section class="pt-1 pb-14 md:pb-24 lg:pt-0">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-14" x-data="{ item: 'all' }">
-            <h2 class="text-center text-gray-1000 dark:text-white text-3xl font-semibold mb-3">Spotlight vacancies</h2>
-            <p class="text-center text-gray-500 dark:text-dark-100 max-w-sm mx-auto mb-6 text-sm px-6 md:text-base">
+            <h2 class="text-center text-gray-1000 dark:text-white text-2.5xl font-semibold mb-3 md:text-3xl">Spotlight vacancies</h2>
+            <p class="text-center text-gray-500 dark:text-dark-100 max-w-sm mx-auto mb-4 px-6 text-base md:mb-6">
                 Some descriptive text about vacancies
                 might be in a couple of lines to be fully clear
             </p>
-
             <!-- filter -->
             <ul class="flex justify-center text-sm space-x-5 md:space-x-6">
                 <li class="relative">
@@ -318,14 +316,13 @@
                     </span>
                 </li>
             </ul>
-
-		    <div class="pt-5 lg:pt-7">
+		    <div class="pt-4 lg:pt-7">
                 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
                     <!-- 1 -->
                     <div class="flex flex-col border border-gray-55 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60" x-show="item === 'all'">
                         <img class="w-full object-cover" src="./images/article-item-1.png" alt="articte-item-1" />
                         <div class="flex-1 px-3.5 py-4 flex flex-col">
-                            <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Engineer Mechanical Engineering (utility)</p>
+                            <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">Engineer Mechanical Engineering (utility)</p>
                             <div class="flex items-center text-sm font-medium text-gray-500 dark:text-dark-100 px-1 mb-4">
                                 <div class="w-6 flex-none">
                                     <svg class="fill-gray-500 dark:fill-dark-100" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -357,7 +354,7 @@
                     <div class="flex flex-col border border-gray-55 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60" x-show="item === 'all'">
                         <img class="w-full object-cover" src="./images/article-item-2.png" alt="articte-item-2" />
                         <div class="flex-1 px-3.5 py-4 flex flex-col">
-                            <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Construction Manager</p>
+                            <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">Construction Manager</p>
                             <div class="flex items-center text-sm font-medium text-gray-500 dark:text-dark-100 px-1 mb-4">
                                 <div class="w-6 flex-none">
                                     <svg class="fill-gray-500 dark:fill-dark-100" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -389,7 +386,7 @@
                     <div class="flex flex-col border border-gray-55 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60" x-show="item === 'all' || item === 'management'">
                         <img class="w-full object-cover" src="./images/article-item-3.png" alt="articte-item-3" />
                         <div class="flex-1 px-3.5 py-4 flex flex-col">
-                            <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Engineer Mechanical Engineering (utility)</p>
+                            <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">Work planner Installation technique small projects</p>
                             <div class="flex items-center text-sm font-medium text-gray-500 dark:text-dark-100 px-1 mb-4">
                                 <div class="w-6 flex-none">
                                     <svg class="fill-gray-500 dark:fill-dark-100" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -397,7 +394,7 @@
                                     </svg>
                                 </div>
                                 <p class="text-sm font-medium">
-                                    Groningen
+                                    Amsterdam
                                 </p>
                                 <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-4 flex-none"></span>
                                 <div class="w-6 flex-none">
@@ -410,7 +407,7 @@
                                     Engineering
                                 </p>
                             </div>
-                            <p class="leading-relaxed text-sm mb-4 line-clamp-2 dark:text-white">Are you looking for a position as Engineer WTB (building-related installations)? Then ...</p>
+                            <p class="leading-relaxed text-sm mb-4 line-clamp-2 dark:text-white">Do you have a technical background and experience in installation technology? Can...</p>
                             <div class="flex justify-between items-end mb-0 mt-auto">
                                 <p class="text-sm text-gray-500 dark:text-dark-100">5 days ago</p>
                                 <img class="w-8 h-8" src="./images/avatar03.png" alt="" />
@@ -421,7 +418,7 @@
                     <div class="flex flex-col border border-gray-55 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60" x-show="item === 'all' || item === 'management'">
                         <img class="w-full object-cover" src="./images/article-item-4.png" alt="articte-item-4" />
                         <div class="flex-1 px-3.5 py-4 flex flex-col">
-                            <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Head of Plant Design Department</p>
+                            <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">Head of Plant Design Department</p>
                             <div class="flex items-center text-sm font-medium text-gray-500 dark:text-dark-100 px-1 mb-4">
                                 <div class="w-6 flex-none">
                                     <svg class="fill-gray-500 dark:fill-dark-100" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -453,7 +450,7 @@
                     <div class="flex flex-col border border-gray-55 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60" x-show="item === 'all' || item === 'technical'">
                         <img class="w-full object-cover" src="./images/article-item-5.png" alt="articte-item-5" />
                         <div class="flex-1 px-3.5 py-4 flex flex-col">
-                            <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Technician Electronics and Instrumentation (Avionics)</p>
+                            <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">Technician Electronics and Instrumentation (Avionics)</p>
                             <div class="flex items-center text-sm font-medium text-gray-500 dark:text-dark-100 px-1 mb-4">
                                 <div class="w-6 flex-none">
                                     <svg class="fill-gray-500 dark:fill-dark-100" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -485,7 +482,7 @@
                     <div class="flex flex-col border border-gray-55 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60" x-show="item === 'all' || item === 'other'">
                         <img class="w-full object-cover" src="./images/article-item-6.png" alt="articte-item-6" />
                         <div class="flex-1 px-3.5 py-4 flex flex-col">
-                            <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Project Manager Engineering</p>
+                            <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">Project Manager Engineering</p>
                             <div class="flex items-center text-sm font-medium text-gray-500 dark:text-dark-100 px-1 mb-4">
                                 <div class="w-6 flex-none">
                                     <svg class="fill-gray-500 dark:fill-dark-100" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -515,7 +512,7 @@
                     </div>
                 </div>
                 <!-- show all -->
-                <div class="flex justify-center mt-8">
+                <div class="flex justify-center mt-6 md:mt-8">
                     <a href="#" class="block text-center text-sm font-semibold text-white bg-violet-600 mx-auto px-3 py-2.5 rounded-lg hover:bg-violet-900 transition-all">
                         Show all vacancies
                     </a>
@@ -524,18 +521,16 @@
         </div>
     </section>
 
-    <section class="pb-20 lg:pt-2 lg:pb-24">
+    <section class="pb-10 md:pb-20 lg:pt-2 lg:pb-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-14">
+            <h2 class="text-center text-gray-1000 dark:text-white leading-snug text-2.5xl font-semibold mb-4 md:text-3xl lg:leading-tight">
+                We wont stop until we have a seamless match.
+            </h2>
+            <p class="text-center text-gray-500 dark:text-dark-100 mb-5 max-w-4xl mx-auto text-base sm:px-4 md:mb-14">
+                A seamless match ensures you get a job that  fits you like a glove. A job where you feel happy, satisfied, challenged and connected. As true beta's we remove the bias from the recruitment proces by combining technology and a human touch to ensure the seamless match.
+            </p>
             <div class="grid gap-6 lg:gap-8 lg:grid-cols-2">
-                <div class="order-1">
-                    <h2 class="text-gray-1000 dark:text-white leading-snug text-3xl font-semibold mb-4 lg:leading-tight">We wont stop until we have a seamless match.</h2>
-                    <p class="text-gray-500 dark:text-dark-100 mb-6 text-sm md:text-base">
-                        A seamless match ensures you get a job that  fits you like a glove. A job where you feel happy, satisfied, challenged and connected.
-                    </p>
-                    <p class="text-gray-500 dark:text-dark-100 mb-10 text-sm md:text-base">
-                        As true beta's we remove the bias from the recruitment proces by combining technology and a human touch to ensure the seamless match.
-                    </p>
-                    
+                <div class="order-2 lg:order-1">
                     <!-- collapse -->
                     <div class="dark:text-white lg:max-w-xl mx-auto" x-data="{selected:1}">
                         <ul class="space-y-5"> 
@@ -632,23 +627,23 @@
                     </div>
                 </div>
 
-                <div class="rounded-sm hidden lg:block order-2">
-                    <img class="mx-auto rounded-xl" src="./images/illustration01.png" alt="">
+                <div class="rounded-sm order-1 lg:order-2">
+                    <img class="mx-auto rounded-xl" src="./images/seamless-match-illustration.svg" alt="">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pb-24 pt-3">
+    <section class="pb-14 md:pb-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-14">
-            <h2 class="text-center text-gray-1000 dark:text-white text-3xl font-semibold mb-3">What Beta's say about Betaselect</h2>
-            <p class="text-center text-gray-500 dark:text-dark-100 max-w-md mx-auto mb-8 text-sm md:text-base">
+            <h2 class="text-center text-gray-1000 dark:text-white leading-snug text-2.5xl font-semibold mb-3 md:text-3xl">What Beta's say about Betaselect</h2>
+            <p class="text-center text-gray-500 dark:text-dark-100 max-w-md mx-auto mb-6 text-base md:mb-8">
                 Some descriptive text about feedback from our company
                 might be in a couple of lines to be fully clear
             </p>
             <div class="columns-1 space-y-4 mb-6 relative gap-2 sm:gap-4 lg:gap-6 sm:columns-2 lg:columns-3 lg:space-y-6">
                 <!-- 1 -->
-                <div class="break-inside-avoid-column border border-gray-55 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
+                <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
                     <div class="flex items-center justify-between mb-3">
                         <span>
                             <svg width="136" height="24" viewBox="0 0 136 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -676,7 +671,7 @@
                     <p class="text-sm text-gray-500 dark:text-dark-100">Project manager industrial</p>
                 </div>
                 <!-- 2 -->
-                <div class="break-inside-avoid-column border border-gray-55 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
+                <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
                     <div class="flex items-center justify-between mb-3">
                         <span>
                             <svg width="136" height="24" viewBox="0 0 136 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -706,7 +701,7 @@
                     <p class="text-sm text-gray-500 dark:text-dark-100">Project manager industrial</p>
                 </div>
                 <!-- 3 -->
-                <div class="break-inside-avoid-column border border-gray-55 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
+                <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
                     <div class="flex items-center justify-between mb-3">
                         <span>
                             <svg width="136" height="24" viewBox="0 0 136 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -729,7 +724,7 @@
                     <p class="text-sm text-gray-500 dark:text-dark-100">Project manager industrial</p>
                 </div>
                 <!-- 4 -->
-                <div class="break-inside-avoid-column border border-gray-55 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4 hidden lg:block">
+                <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4 hidden lg:block">
                     <div class="flex items-center justify-between mb-3">
                         <span>
                             <svg width="136" height="24" viewBox="0 0 136 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -760,7 +755,7 @@
                     <p class="text-sm text-gray-500 dark:text-dark-100">Project manager industrial</p>
                 </div>
                 <!-- 5 -->
-                <div class="break-inside-avoid-column border border-gray-55 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4 hidden lg:block">
+                <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4 hidden lg:block">
                     <div class="flex items-center justify-between mb-3">
                         <span>
                             <svg width="136" height="24" viewBox="0 0 136 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -795,24 +790,28 @@
             </div>
         </div>
         <!-- show all -->
-        <div class="flex justify-center mt-8 lg:mt-10">
+        <div class="flex justify-center mt-6 lg:mt-10">
             <a href="#" class="text-center text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 rounded-lg hover:bg-violet-900 transition-all">Show all vacancies</a>
         </div>
     </section>
 
-    <section class="pb-20 pt-1">
+    <section class="pb-14 md:pb-20 md:pt-1">
         <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-14">
-            <h2 class="text-center text-gray-1000 dark:text-white text-3xl font-semibold mb-3">Articles about Betaselect</h2>
-            <p class="text-center text-gray-500 dark:text-dark-100 max-w-sm mx-auto mb-8 text-sm px-6 md:text-base">
+            <h2 class="text-center text-gray-1000 dark:text-white leading-snug text-2.5xl font-semibold mb-3 md:text-3xl">
+                Articles about Betaselect
+            </h2>
+            <p class="text-center text-gray-500 dark:text-dark-100 max-w-sm mx-auto mb-6 text-base sm:px-6 md:mb-8">
                 Some descriptive text about vacancies
                 might be in a couple of lines to be fully clear
             </p>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                 <!-- 1 -->
-                <div class="flex flex-col border rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60 dark:text-white">
+                <div class="flex flex-col border border-gray-85 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60 dark:text-white">
                     <img class="w-full object-cover" src="./images/article-item-7.png" alt="articte-item-1" />
                     <div class="flex-1 px-3.5 py-4 flex flex-col">
-                        <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Identify bad qualities in a job interview</p>
+                        <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">
+                            Identify bad qualities in a job interview
+                        </p>
                         <p class="leading-relaxed text-sm mb-4 line-clamp-2">Do you have knowledge of printed circuit boards and electronics? Are you good at...</p>
                         <div class="flex items-center">
                             <img class="w-10 h-10" src="./images/avatar03.png" alt="" />
@@ -824,10 +823,12 @@
                     </div>
                 </div>
                 <!-- 2 -->
-                <div class="flex flex-col border rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60 dark:text-white">
+                <div class="flex flex-col border border-gray-85 rounded-2xl overflow-hidden dark:bg-dark-200 dark:border-gray-60 dark:text-white">
                     <img class="w-full object-cover" src="./images/article-item-8.png" alt="articte-item-2" />
                     <div class="flex-1 px-3.5 py-4 flex flex-col">
-                        <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">You earn the most with a technical HBO study</p>
+                        <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">
+                            You earn the most with a technical HBO study
+                        </p>
                         <p class="leading-relaxed text-sm mb-4 line-clamp-2">According to the HBO selection guide, the best paid jobs are in the technical sector...</p>
                         <div class="flex items-center">
                             <img class="w-10 h-10" src="./images/avatar03.png" alt="" />
@@ -839,10 +840,12 @@
                     </div>
                 </div>
                 <!-- 3 -->
-                <div class="flex-col border rounded-2xl overflow-hidden hidden lg:flex dark:bg-dark-200 dark:border-gray-60 dark:text-white">
+                <div class="flex-col border border-gray-85 rounded-2xl overflow-hidden hidden lg:flex dark:bg-dark-200 dark:border-gray-60 dark:text-white">
                     <img class="w-full object-cover" src="./images/article-item-9.png" alt="articte-item-3" />
                     <div class="flex-1 px-3.5 py-4 flex flex-col">
-                        <p class="text-gray-1000 dark:text-white text-sm md:text-xl md:leading-tight font-semibold mb-3">Quit your job. How do you do that? (With free resignation l...</p>
+                        <p class="text-gray-1000 dark:text-white text-xl leading-tight font-semibold mb-3">
+                            Quit your job. How do you do that? (With free resignation l...
+                        </p>
                         <p class="leading-relaxed text-sm mb-4 line-clamp-2">If you have found a new job, you cannot escape it; you have to quit your current job...</p>
                         <div class="flex items-center">
                             <img class="w-10 h-10" src="./images/avatar05.png" alt="" />
@@ -855,7 +858,7 @@
                 </div>
             </div>
             <!-- show all -->
-            <div class="flex justify-center mt-8">
+            <div class="flex justify-center mt-6 md:mt-8">
                 <a href="#" class="text-center text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 rounded-lg hover:bg-violet-900 transition-all">
                     Read more articles
                 </a>
@@ -863,17 +866,17 @@
         </div>
     </section>
 
-    <section class="border-t border-gray-300 dark:border-gray-60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-8 py-4 md:py-0 lg:px-16">
-            <div class="flex items-start justify-between flex-col sm:flex-row md:items-center">
-                <h2 class="text-gray-1000 dark:text-white leading-normal text-2xl font-semibold max-w-sm mb-4 sm:mb-0 lg:text-3xl">
+    <section class="border-t border-gray-85 dark:border-gray-60">
+        <div class="max-w-6xl mx-auto px-4 pt-6 sm:px-8 md:py-0 lg:px-16">
+            <div class="flex items-center justify-between flex-col text-center md:text-left md:flex-row">
+                <h2 class="text-gray-1000 leading-snug text-2xl font-semibold max-w-xs mb-4 dark:text-white md:mb-0 order-1 md:pr-4 lg:pr-0 lg:max-w-sm lg:text-3xl">
                     Ready to get started?
                     Find your new job today.
                 </h2>
-                <div class="w-full max-w-xs ml-auto -mt-8 mr-6 hidden md:block h-44 lg:mr-16 lg:h-52">
-                    <img src="./images/hero-illustration.svg" width="477" height="341" alt="Hero Illustration">
+                <div class="w-full max-w-xs order-3 md:ml-auto md:-mt-14 md:-mb-5 md:mr-6 md:h-52 md:order-2 lg:-mb-7 lg:mr-16 lg:h-60">
+                    <img src="./images/ready-started-illustration.svg" alt="Ready Started Illustration" class="h-full">
                 </div>
-                <div>
+                <div class="mb-7 order-2 md:mb-0 md:order-3">
                     <a href="#" class="flex text-center text-sm font-semibold text-white bg-violet-600 whitespace-nowrap px-3 py-2.5 rounded-lg hover:bg-violet-900 transition-all">
                         See all vacancies
                     </a>
