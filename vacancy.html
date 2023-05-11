@@ -582,7 +582,7 @@
                         <h2 class="text-center text-gray-1000 dark:text-white text-3xl font-semibold mb-7">
                             What other applicants say?
                         </h2>
-                        <div class="columns-1 space-y-4 mb-6 relative gap-2 sm:gap-4 sm:columns-2 lg:gap-6">
+                        <div class="columns-1 space-y-4 mb-6 relative gap-2 sm:gap-4 sm:columns-2 lg:mb-0 lg:gap-6">
                             <!-- 1 -->
                             <div class="break-inside-avoid-column border border-gray-55 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
                                 <div class="flex items-center justify-between mb-3">
@@ -647,150 +647,151 @@
                 </div>
             </div>
             <!-- right sidebar -->
-            <div class="w-full space-y-4 mb-8 lg:mb-0 lg:pl-5 lg:w-1/3 lg:sticky">
-                <div class="border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 py-3">
-                    <h3 class="text-xl font-semibold mb-2 dark:text-white">Interested in vacancy?</h3>
-                    <p class="text-sm text-gray-500 mb-5 dark:text-dark-100">Easy to apply, ready within 2 minutes!</p>
-                    <form class="flex flex-col gap-4">
+            <div class="w-full mb-8 lg:mb-0 lg:pl-5 lg:w-1/3">
+                <div class="space-y-4 lg:top-20 lg:right-0 lg:sticky">
+                    <div class="border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 py-3">
+                        <h3 class="text-xl font-semibold mb-1.5 dark:text-white">Interested in vacancy?</h3>
+                        <p class="text-sm text-gray-500 mb-6 dark:text-dark-100">Easy to apply, ready within 2 minutes!</p>
+                        <form class="flex flex-col gap-4">
 
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="text-sm order-3 col-span-2 sm:col-span-1 lg:col-span-2 lg:order-1">
-                                <label for="email" class="flex font-medium mb-1 px-1 dark:text-white">Email</label>
-                                <input type="email" id="email" placeholder="" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100" />
-                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-sm order-3 col-span-2 sm:col-span-1 lg:col-span-2 lg:order-1">
+                                    <label for="email" class="flex font-medium mb-1 px-1 dark:text-white">Email</label>
+                                    <input type="email" id="email" placeholder="" class="ring-1 bg-white dark:text-white dark:bg-dark-200 ring-gray-55 dark:ring-gray-66 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:ring-gray-1000 focus:ring-2 dark:focus:ring-gray-400 ring-offset-0 placeholder:text-gray-1200 placeholder:dark:text-dark-100" />
+                                </div>
 
-                            <div class="text-sm order-1 col-span-2 sm:col-span-1 lg:order-2">
-                                <label for="" class="flex font-medium mb-1 px-1 dark:text-white">First name</label>
-                                <input type="text" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
-                            </div>
-                            <div class="text-sm order-2 col-span-2 sm:col-span-1 lg:order-3">
-                                <label for="" class="flex font-medium mb-1 px-1 dark:text-white">Last name</label>
-                                <input type="text" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
-                            </div>
+                                <div class="text-sm order-1 col-span-2 sm:col-span-1 lg:order-2">
+                                    <label for="" class="flex font-medium mb-1 px-1 dark:text-white">First name</label>
+                                    <input type="text" class="ring-1 bg-white dark:text-white dark:bg-dark-200 ring-gray-55 dark:ring-gray-66 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:ring-gray-1000 focus:ring-2 dark:focus:ring-gray-400 ring-offset-0 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
+                                </div>
+                                <div class="text-sm order-2 col-span-2 sm:col-span-1 lg:order-3">
+                                    <label for="" class="flex font-medium mb-1 px-1 dark:text-white">Last name</label>
+                                    <input type="text" class="ring-1 bg-white dark:text-white dark:bg-dark-200 ring-gray-55 dark:ring-gray-66 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:ring-gray-1000 focus:ring-2 dark:focus:ring-gray-400 ring-offset-0 placeholder:text-gray-1200 placeholder:dark:text-dark-100">
+                                </div>
 
-                            <div class="text-sm order-4 col-span-2 sm:col-span-1 lg:col-span-2">
-                                <label for="phone" class="flex font-medium mb-1 px-1 dark:text-white">Phone number</label>
-                                <input type="text" id="phone" placeholder="+31 ( ) -" class="border bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:border-gray-1000 dark:focus:border-gray-400 placeholder:text-gray-1200 placeholder:dark:text-dark-100[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"/>
-                            </div>
-                        </div>
-
-                        <!-- Drag & drop or click here to upload your file -->
-                        <div class="flex flex-col flex-grow col-span-2">
-                            <span class="flex text-sm font-medium mb-1 px-1 dark:text-white">Upload your CV <span class="ml-1 text-gray-500 dark:text-dark-100">(optional)</span></span>
-                            <div x-data="{ files: null }" id="FileUpload" class="block w-full py-3 px-3 relative bg-gray-50 dark:bg-gray-65 appearance-none border border-gray-300 dark:border-gray-60 border-dashed rounded-lg hover:shadow-outline-gray">
-                                <input type="file" multiple
-                                        class="absolute inset-0 z-10 m-0 p-0 w-full h-full outline-none opacity-0 text-sm"
-                                        x-on:change="files = $event.target.files; console.log($event.target.files);"
-                                        x-on:dragover="$el.classList.add('active')" x-on:dragleave="$el.classList.remove('active')" x-on:drop="$el.classList.remove('active')"
-                                >
-                                <template x-if="files !== null">
-                                    <div class="flex">
-                                    <template x-for="(_,index) in Array.from({ length: files.length })">
-                                        <div class="flex flex-row items-center">
-                                        
-                                        <template x-if="files[index].type.includes('application/')">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 mr-2" style="fill:#6B7280;"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"/></svg>
-                                        </template>
-                                        <template x-if="files[index].type.includes('image/')">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 mr-2" style="fill:#6B7280;"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM96 224c17.67 0 32 14.33 32 32S113.7 288 96 288S64 273.7 64 256S78.33 224 96 224zM318.1 439.5C315.3 444.8 309.9 448 304 448h-224c-5.9 0-11.32-3.248-14.11-8.451c-2.783-5.201-2.479-11.52 .7949-16.42l53.33-80C122.1 338.7 127.1 336 133.3 336s10.35 2.674 13.31 7.125L160 363.2l45.35-68.03C208.3 290.7 213.3 288 218.7 288s10.35 2.674 13.31 7.125l85.33 128C320.6 428 320.9 434.3 318.1 439.5zM256 0v128h128L256 0z"/></svg>
-                                        </template>
-                                        <template x-if="files[index].type.includes('audio/')">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 mr-2" style="fill:#6B7280;"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm-64 268c0 10.7-12.9 16-20.5 8.5L104 376H76c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h28l35.5-36.5c7.6-7.6 20.5-2.2 20.5 8.5v136zm33.2-47.6c9.1-9.3 9.1-24.1 0-33.4-22.1-22.8 12.2-56.2 34.4-33.5 27.2 27.9 27.2 72.4 0 100.4-21.8 22.3-56.9-10.4-34.4-33.5zm86-117.1c54.4 55.9 54.4 144.8 0 200.8-21.8 22.4-57-10.3-34.4-33.5 36.2-37.2 36.3-96.5 0-133.8-22.1-22.8 12.3-56.3 34.4-33.5zM384 121.9v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"/></svg>
-                                        </template>
-            
-                                        <span class="font-medium text-sm text-gray-500" x-text="files[index].name">Uploading</span>
-                                        <!-- <span class="text-xs self-end text-gray-500" x-text="files[index].size / 1024 / 1024 + 'MB'">...</span> -->
-                                        </div>
-                                    </template>
-                                    </div>
-                                </template>
-                                <template x-if="files === null">
-                                    <div class="flex items-center">
-                                        <svg class="fill-gray-500 dark:fill-white" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle class="fill-gray-75 dark:fill-gray-60" cx="20" cy="20" r="20"/>
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 15C20.5523 15 21 15.4477 21 16V19L24 19C24.5523 19 25 19.4477 25 20C25 20.5523 24.5523 21 24 21H21V24C21 24.5523 20.5523 25 20 25C19.4477 25 19 24.5523 19 24V21H16C15.4477 21 15 20.5523 15 20C15 19.4477 15.4477 19 16 19L19 19V16C19 15.4477 19.4477 15 20 15Z"/>
-                                        </svg>
-                                        <div class="ml-3">
-                                            <p class="text-sm text-gray-500 dark:text-dark-100">
-                                                <span class="hidden md:inline">Drag & drop or</span>
-                                                <span class="underline relative z-10 cursor-pointer md:lowercase"> Click here</span> to upload your file
-                                            </p>
-                                            <p class="text-xs text-gray-400 dark:text-dark-100 dark:text-opacity-80">up to 15 MB</p>
-                                        </div>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-
-                        <span class="col-span-2 text-xs font-medium dark:text-white bg-violet-100/80 dark:bg-gray-60 px-4 py-2.5 -mt-1 rounded-lg flex items-center w-full">
-                            <svg class="fill-violet-600 dark:fill-white mr-1" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4001 7.00001C13.4001 10.5346 10.5347 13.4 7.0001 13.4C3.46548 13.4 0.600098 10.5346 0.600098 7.00001C0.600098 3.46538 3.46548 0.600006 7.0001 0.600006C10.5347 0.600006 13.4001 3.46538 13.4001 7.00001ZM7.8001 3.80001C7.8001 4.24183 7.44192 4.60001 7.0001 4.60001C6.55827 4.60001 6.2001 4.24183 6.2001 3.80001C6.2001 3.35818 6.55827 3.00001 7.0001 3.00001C7.44192 3.00001 7.8001 3.35818 7.8001 3.80001ZM6.2001 6.20001C5.75827 6.20001 5.4001 6.55818 5.4001 7.00001C5.4001 7.44183 5.75827 7.80001 6.2001 7.80001V10.2C6.2001 10.6418 6.55827 11 7.0001 11H7.8001C8.24192 11 8.6001 10.6418 8.6001 10.2C8.6001 9.75818 8.24192 9.40001 7.8001 9.40001V7.00001C7.8001 6.55818 7.44192 6.20001 7.0001 6.20001H6.2001Z"/>
-                            </svg>
-                            You will get feedback within 3 days!
-                        </span>
-                        <button type="button" class="col-span-2 text-sm font-semibold text-white bg-violet-600 px-4 py-2.5 -mt-1 rounded-lg w-full hover:bg-violet-900 transition-all">
-                            Apply
-                        </button>
-
-                        <p class="col-span-2 text-xs text-center dark:text-white">
-                            By clicking “Apply” you agree with Betaselect 
-                            <a href="#" class="text-violet-600 dark:text-violet-550">Privacy policy</a> and <a href="#" class="text-violet-600 dark:text-violet-550">Terms & Conditions</a>
-                        </p>
-                    </form>
-                </div>
-                
-                <div class="flex flex-col border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 pt-3 pb-5 space-y-4 divide-y divide-gray-85 dark:divide-gray-60 sm:space-x-8 sm:space-y-0 sm:flex-row sm:divide-y-0 lg:space-x-0 lg:flex-col lg:divide-y lg:space-y-4">
-                    <div class="space-y-4 md:flex-1">
-                        <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase">Contact person</h4>
-                        
-                        <div class="flex items-center">
-                            <img class="w-12 h-12 outline outline-2 outline-offset-2 outline-violet-600 rounded-full" src="./images/avatar03.png" alt="">
-                            <div class="flex flex-col ml-4">
-                                <p class="text-md font-semibold mb-1 dark:text-white">Marnix Haitsma</p>
-                                <div class="flex items-center text-gray-500 dark:text-dark-100">
-                                    <p class="text-sm font-medium">
-                                        Consultant
-                                    </p>
-                                    <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
-                                    <p class="text-sm font-medium">
-                                        Owner
-                                    </p>
+                                <div class="text-sm order-4 col-span-2 sm:col-span-1 lg:col-span-2">
+                                    <label for="phone" class="flex font-medium mb-1 px-1 dark:text-white">Phone number</label>
+                                    <input type="text" id="phone" placeholder="+31 ( ) -" class="ring-1 bg-white dark:text-white dark:bg-dark-200 ring-gray-55 dark:ring-gray-66 rounded-lg w-full py-2.5 px-2 focus:outline-none focus:shadow-outline focus:ring-gray-1000 focus:ring-2 dark:focus:ring-gray-400 ring-offset-0 placeholder:text-gray-1200 placeholder:dark:text-dark-100[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"/>
                                 </div>
                             </div>
-                            <a href="#" class="ml-auto mr-0">
-                                <svg class="fill-gray-500 dark:fill-blue-50" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.8333 0.5H2.16667C1.24583 0.5 0.5 1.24583 0.5 2.16667V13.8333C0.5 14.7542 1.24583 15.5 2.16667 15.5H13.8333C14.7542 15.5 15.5 14.7542 15.5 13.8333V2.16667C15.5 1.24583 14.7542 0.5 13.8333 0.5ZM5.5 12.1667H3.3975V6.33333H5.5V12.1667ZM4.41167 5.26417C3.76917 5.26417 3.34 4.83583 3.34 4.26417C3.34 3.6925 3.76833 3.26417 4.4825 3.26417C5.125 3.26417 5.55417 3.6925 5.55417 4.26417C5.55417 4.83583 5.12583 5.26417 4.41167 5.26417ZM13 12.1667H10.965V8.97833C10.965 8.09667 10.4225 7.89333 10.2192 7.89333C10.0158 7.89333 9.3375 8.02917 9.3375 8.97833C9.3375 9.11417 9.3375 12.1667 9.3375 12.1667H7.235V6.33333H9.3375V7.1475C9.60833 6.6725 10.1508 6.33333 11.1683 6.33333C12.1858 6.33333 13 7.1475 13 8.97833V12.1667Z"/>
+
+                            <!-- Drag & drop or click here to upload your file -->
+                            <div class="flex flex-col flex-grow col-span-2">
+                                <span class="flex text-sm font-medium mb-1 px-1 dark:text-white">Upload your CV <span class="ml-1 text-gray-500 dark:text-dark-100">(optional)</span></span>
+                                <div x-data="{ files: null }" id="FileUpload" class="block w-full py-3 px-3 relative bg-gray-50 dark:bg-gray-65 appearance-none border border-gray-300 dark:border-gray-60 border-dashed rounded-lg hover:shadow-outline-gray">
+                                    <input type="file" multiple
+                                            class="absolute inset-0 z-10 m-0 p-0 w-full h-full outline-none opacity-0 text-sm"
+                                            x-on:change="files = $event.target.files; console.log($event.target.files);"
+                                            x-on:dragover="$el.classList.add('active')" x-on:dragleave="$el.classList.remove('active')" x-on:drop="$el.classList.remove('active')"
+                                    >
+                                    <template x-if="files !== null">
+                                        <div class="flex">
+                                        <template x-for="(_,index) in Array.from({ length: files.length })">
+                                            <div class="flex flex-row items-center">
+                                            
+                                            <template x-if="files[index].type.includes('application/')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 mr-2" style="fill:#6B7280;"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"/></svg>
+                                            </template>
+                                            <template x-if="files[index].type.includes('image/')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 mr-2" style="fill:#6B7280;"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM96 224c17.67 0 32 14.33 32 32S113.7 288 96 288S64 273.7 64 256S78.33 224 96 224zM318.1 439.5C315.3 444.8 309.9 448 304 448h-224c-5.9 0-11.32-3.248-14.11-8.451c-2.783-5.201-2.479-11.52 .7949-16.42l53.33-80C122.1 338.7 127.1 336 133.3 336s10.35 2.674 13.31 7.125L160 363.2l45.35-68.03C208.3 290.7 213.3 288 218.7 288s10.35 2.674 13.31 7.125l85.33 128C320.6 428 320.9 434.3 318.1 439.5zM256 0v128h128L256 0z"/></svg>
+                                            </template>
+                                            <template x-if="files[index].type.includes('audio/')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 mr-2" style="fill:#6B7280;"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm-64 268c0 10.7-12.9 16-20.5 8.5L104 376H76c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h28l35.5-36.5c7.6-7.6 20.5-2.2 20.5 8.5v136zm33.2-47.6c9.1-9.3 9.1-24.1 0-33.4-22.1-22.8 12.2-56.2 34.4-33.5 27.2 27.9 27.2 72.4 0 100.4-21.8 22.3-56.9-10.4-34.4-33.5zm86-117.1c54.4 55.9 54.4 144.8 0 200.8-21.8 22.4-57-10.3-34.4-33.5 36.2-37.2 36.3-96.5 0-133.8-22.1-22.8 12.3-56.3 34.4-33.5zM384 121.9v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"/></svg>
+                                            </template>
+                
+                                            <span class="font-medium text-sm text-gray-500" x-text="files[index].name">Uploading</span>
+                                            <!-- <span class="text-xs self-end text-gray-500" x-text="files[index].size / 1024 / 1024 + 'MB'">...</span> -->
+                                            </div>
+                                        </template>
+                                        </div>
+                                    </template>
+                                    <template x-if="files === null">
+                                        <div class="flex items-center">
+                                            <svg class="fill-gray-500 dark:fill-white" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle class="fill-gray-75 dark:fill-gray-60" cx="20" cy="20" r="20"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 15C20.5523 15 21 15.4477 21 16V19L24 19C24.5523 19 25 19.4477 25 20C25 20.5523 24.5523 21 24 21H21V24C21 24.5523 20.5523 25 20 25C19.4477 25 19 24.5523 19 24V21H16C15.4477 21 15 20.5523 15 20C15 19.4477 15.4477 19 16 19L19 19V16C19 15.4477 19.4477 15 20 15Z"/>
+                                            </svg>
+                                            <div class="ml-3">
+                                                <p class="text-sm text-gray-500 dark:text-dark-100">
+                                                    <span class="hidden md:inline">Drag & drop or</span>
+                                                    <span class="underline relative z-10 cursor-pointer md:lowercase"> Click here</span> to upload your file
+                                                </p>
+                                                <p class="text-xs text-gray-400 dark:text-dark-100 dark:text-opacity-80">up to 15 MB</p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <span class="col-span-2 text-xs font-medium dark:text-white bg-violet-100/80 dark:bg-gray-60 px-4 py-2.5 -mt-1 rounded-lg flex items-center w-full">
+                                <svg class="fill-violet-600 dark:fill-white mr-1" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4001 7.00001C13.4001 10.5346 10.5347 13.4 7.0001 13.4C3.46548 13.4 0.600098 10.5346 0.600098 7.00001C0.600098 3.46538 3.46548 0.600006 7.0001 0.600006C10.5347 0.600006 13.4001 3.46538 13.4001 7.00001ZM7.8001 3.80001C7.8001 4.24183 7.44192 4.60001 7.0001 4.60001C6.55827 4.60001 6.2001 4.24183 6.2001 3.80001C6.2001 3.35818 6.55827 3.00001 7.0001 3.00001C7.44192 3.00001 7.8001 3.35818 7.8001 3.80001ZM6.2001 6.20001C5.75827 6.20001 5.4001 6.55818 5.4001 7.00001C5.4001 7.44183 5.75827 7.80001 6.2001 7.80001V10.2C6.2001 10.6418 6.55827 11 7.0001 11H7.8001C8.24192 11 8.6001 10.6418 8.6001 10.2C8.6001 9.75818 8.24192 9.40001 7.8001 9.40001V7.00001C7.8001 6.55818 7.44192 6.20001 7.0001 6.20001H6.2001Z"/>
                                 </svg>
+                                You will get feedback within 3 days!
+                            </span>
+                            <button type="button" class="col-span-2 text-sm font-semibold text-white bg-violet-600 px-4 py-2.5 -mt-1 rounded-lg w-full hover:bg-violet-900 transition-all">
+                                Apply
+                            </button>
+
+                            <p class="col-span-2 text-xs text-center dark:text-white">
+                                By clicking “Apply” you agree with Betaselect 
+                                <a href="#" class="text-violet-600 dark:text-violet-550">Privacy policy</a> and <a href="#" class="text-violet-600 dark:text-violet-550">Terms & Conditions</a>
+                            </p>
+                        </form>
+                    </div>
+                    
+                    <div class="flex flex-col border rounded-xl bg-white dark:bg-dark-200 border-gray-55 dark:border-gray-60 px-4 pt-3 pb-5 space-y-4 divide-y divide-gray-85 dark:divide-gray-60 sm:space-x-8 sm:space-y-0 sm:flex-row sm:divide-y-0 lg:space-x-0 lg:flex-col lg:divide-y lg:space-y-4">
+                        <div class="space-y-4 md:flex-1">
+                            <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase">Contact person</h4>
+                            
+                            <div class="flex items-center">
+                                <img class="w-12 h-12 outline outline-2 outline-offset-2 outline-violet-600 rounded-full" src="./images/avatar03.png" alt="">
+                                <div class="flex flex-col ml-4">
+                                    <p class="text-md font-semibold mb-1 dark:text-white">Marnix Haitsma</p>
+                                    <div class="flex items-center text-gray-500 dark:text-dark-100">
+                                        <p class="text-sm font-medium">
+                                            Consultant
+                                        </p>
+                                        <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
+                                        <p class="text-sm font-medium">
+                                            Owner
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="#" class="ml-auto mr-0">
+                                    <svg class="fill-gray-500 dark:fill-blue-50" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.8333 0.5H2.16667C1.24583 0.5 0.5 1.24583 0.5 2.16667V13.8333C0.5 14.7542 1.24583 15.5 2.16667 15.5H13.8333C14.7542 15.5 15.5 14.7542 15.5 13.8333V2.16667C15.5 1.24583 14.7542 0.5 13.8333 0.5ZM5.5 12.1667H3.3975V6.33333H5.5V12.1667ZM4.41167 5.26417C3.76917 5.26417 3.34 4.83583 3.34 4.26417C3.34 3.6925 3.76833 3.26417 4.4825 3.26417C5.125 3.26417 5.55417 3.6925 5.55417 4.26417C5.55417 4.83583 5.12583 5.26417 4.41167 5.26417ZM13 12.1667H10.965V8.97833C10.965 8.09667 10.4225 7.89333 10.2192 7.89333C10.0158 7.89333 9.3375 8.02917 9.3375 8.97833C9.3375 9.11417 9.3375 12.1667 9.3375 12.1667H7.235V6.33333H9.3375V7.1475C9.60833 6.6725 10.1508 6.33333 11.1683 6.33333C12.1858 6.33333 13 7.1475 13 8.97833V12.1667Z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="space-y-3 pt-3 sm:pt-0 sm:flex-1 lg:pt-3">
+                            <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase">got questions?</h4>
+                            <a href="tel:0612345678" class="flex items-center">
+                                <div class="w-6 mr-2 flex-none flex justify-center">
+                                    <svg class="fill-gray-500 dark:fill-dark-100" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.9241 0.617216C15.8757 0.500141 15.804 0.3904 15.7092 0.295017C15.7078 0.293599 15.7064 0.292185 15.705 0.290776C15.5242 0.111056 15.2751 0 15 0H11C10.4477 0 10 0.447715 10 1C10 1.55228 10.4477 2 11 2H12.5858L9.29289 5.29289C8.90237 5.68342 8.90237 6.31658 9.29289 6.70711C9.68342 7.09763 10.3166 7.09763 10.7071 6.70711L14 3.41421V5C14 5.55228 14.4477 6 15 6C15.5523 6 16 5.55228 16 5V1C16 0.86441 15.973 0.735123 15.9241 0.617216Z"/>
+                                        <path d="M0 1C0 0.447715 0.447716 0 1 0H3.15287C3.64171 0 4.0589 0.353413 4.13927 0.835601L4.87858 5.27147C4.95075 5.70451 4.73206 6.13397 4.3394 6.3303L2.79126 7.10437C3.90756 9.87832 6.12168 12.0924 8.89563 13.2087L9.6697 11.6606C9.86603 11.2679 10.2955 11.0492 10.7285 11.1214L15.1644 11.8607C15.6466 11.9411 16 12.3583 16 12.8471V15C16 15.5523 15.5523 16 15 16H13C5.8203 16 0 10.1797 0 3V1Z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-sm font-medium text-gray-1000 dark:text-white">
+                                    06-12345678
+                                </p>
+                            </a>
+                            <a href="mailto:marnix.haitsma@betaselect.nl" class="flex items-center">
+                                <div class="w-6 mr-2 flex-none flex justify-center">
+                                    <svg class="fill-gray-500 dark:fill-dark-100" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.00333343 1.88355L7.99995 5.88186L15.9967 1.8835C15.9363 0.833152 15.0655 0 14 0H2C0.934518 0 0.0636347 0.833179 0.00333343 1.88355Z"/>
+                                        <path d="M16 4.1179L7.99995 8.11793L0 4.11796V10C0 11.1046 0.895431 12 2 12H14C15.1046 12 16 11.1046 16 10V4.1179Z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-sm font-medium text-gray-1000 dark:text-white">
+                                    marnix.haitsma@betaselect.nl
+                                </p>
                             </a>
                         </div>
                     </div>
-                    <div class="space-y-3 pt-3 sm:pt-0 sm:flex-1 lg:pt-3">
-                        <h4 class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase">got questions?</h4>
-                        <a href="tel:0612345678" class="flex items-center">
-                            <div class="w-6 mr-2 flex-none flex justify-center">
-                                <svg class="fill-gray-500 dark:fill-dark-100" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15.9241 0.617216C15.8757 0.500141 15.804 0.3904 15.7092 0.295017C15.7078 0.293599 15.7064 0.292185 15.705 0.290776C15.5242 0.111056 15.2751 0 15 0H11C10.4477 0 10 0.447715 10 1C10 1.55228 10.4477 2 11 2H12.5858L9.29289 5.29289C8.90237 5.68342 8.90237 6.31658 9.29289 6.70711C9.68342 7.09763 10.3166 7.09763 10.7071 6.70711L14 3.41421V5C14 5.55228 14.4477 6 15 6C15.5523 6 16 5.55228 16 5V1C16 0.86441 15.973 0.735123 15.9241 0.617216Z"/>
-                                    <path d="M0 1C0 0.447715 0.447716 0 1 0H3.15287C3.64171 0 4.0589 0.353413 4.13927 0.835601L4.87858 5.27147C4.95075 5.70451 4.73206 6.13397 4.3394 6.3303L2.79126 7.10437C3.90756 9.87832 6.12168 12.0924 8.89563 13.2087L9.6697 11.6606C9.86603 11.2679 10.2955 11.0492 10.7285 11.1214L15.1644 11.8607C15.6466 11.9411 16 12.3583 16 12.8471V15C16 15.5523 15.5523 16 15 16H13C5.8203 16 0 10.1797 0 3V1Z"/>
-                                </svg>
-                            </div>
-                            <p class="text-sm font-medium text-gray-1000 dark:text-white">
-                                06-12345678
-                            </p>
-                        </a>
-                        <a href="mailto:marnix.haitsma@betaselect.nl" class="flex items-center">
-                            <div class="w-6 mr-2 flex-none flex justify-center">
-                                <svg class="fill-gray-500 dark:fill-dark-100" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.00333343 1.88355L7.99995 5.88186L15.9967 1.8835C15.9363 0.833152 15.0655 0 14 0H2C0.934518 0 0.0636347 0.833179 0.00333343 1.88355Z"/>
-                                    <path d="M16 4.1179L7.99995 8.11793L0 4.11796V10C0 11.1046 0.895431 12 2 12H14C15.1046 12 16 11.1046 16 10V4.1179Z"/>
-                                </svg>
-                            </div>
-                            <p class="text-sm font-medium text-gray-1000 dark:text-white">
-                                marnix.haitsma@betaselect.nl
-                            </p>
-                        </a>
-                    </div>
                 </div>
-
             </div>
         </div>
     </section>
