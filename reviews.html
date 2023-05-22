@@ -26,7 +26,6 @@
     </style>
 </head>
 
-<!-- <body x-data="{ showBar: false }" class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme"> -->
 <body x-data="{ showFilterModal: false, showBar: false }" :class="{ 'overflow-hidden': showFilterModal }" class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme sm:overflow-visible">
     <!-- Site header -->
     <header
@@ -583,7 +582,7 @@
                             </p>
                         </div>
                         <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                            <img src="./images/social-icon.svg" alt="" class="w-5 h-5">
                         </a>
                     </div>
                 </div>
@@ -626,7 +625,7 @@
                             </p>
                         </div>
                         <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                            <img src="./images/social-icon.svg" alt="" class="w-5 h-5">
                         </a>
                     </div>
                 </div>
@@ -650,20 +649,27 @@
                     <p class="text-xl mb-6">
                         This eplanation might be long, so we’ll add some more text in here. Some descriptive text about our process that might be in a couple of lines to be fully clear. This eplanation might be long, so we’ll add some more text in here
                     </p>
-                    <p class="text-base font-medium">Sam Smith</p>
-                    <div class="flex justify-between">
-                        <div class="w-4/5 text-sm flex items-center text-gray-500 dark:text-dark-100">
-                            <p class="truncate">
-                                Project manager industrial
-                            </p>
-                            <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
-                            <p class="whitespace-nowrap">
-                                12-05-2023
-                            </p>
+                    <div class="flex items-center w-full">
+                        <div class="mr-2 hidden md:flex">
+                            <img src="./images/avatar06.png" class="w-9 h-9" alt="">
                         </div>
-                        <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
-                        </a>
+                        <div class="md:w-5/6">
+                            <h3 class="font-medium">Sam Smith</h3>
+                            <div class="flex justify-between">
+                                <div class="w-5/6 text-sm flex items-center text-gray-500 dark:text-dark-100">
+                                    <p class="truncate">
+                                        Project manager industrial
+                                    </p>
+                                    <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
+                                    <p class="whitespace-nowrap">
+                                        12-05-2023
+                                    </p>
+                                </div>
+                                <a href="#">
+                                    <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- 4 -->
@@ -706,7 +712,7 @@
                             </p>
                         </div>
                         <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                            <img src="./images/social-icon.svg" alt="" class="w-5 h-5">
                         </a>
                     </div>
                 </div>
@@ -739,31 +745,38 @@
                     <p class="text-xl mb-6">
                         Are you an experienced manager
                     </p>
-                    <p class="text-base font-medium">Robert Fox</p>
-                    <div class="flex justify-between">
-                        <div class="w-4/5 text-sm flex items-center text-gray-500 dark:text-dark-100">
-                            <p class="truncate">
-                                Talent Advisor Industrial
-                            </p>
-                            <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
-                            <p class="whitespace-nowrap">
-                                12-05-2023
-                            </p>
+                    <div class="flex items-center w-full">
+                        <div class="mr-2 hidden md:flex">
+                            <img src="./images/avatar07.png" class="w-9 h-9" alt="">
                         </div>
-                        <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
-                        </a>
+                        <div class="md:w-5/6">
+                            <h3 class="font-medium">Robert Fox</h3>
+                            <div class="flex justify-between">
+                                <div class="w-5/6 text-sm flex items-center text-gray-500 dark:text-dark-100">
+                                    <p class="truncate">
+                                        Talent Advisor Industrial
+                                    </p>
+                                    <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
+                                    <p class="whitespace-nowrap">
+                                        12-05-2023
+                                    </p>
+                                </div>
+                                <a href="#">
+                                    <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="text-white bg-violet-600 px-6 py-6 rounded-2xl text-center flex flex-col justify-between items-center my-8 sm:text-left sm:flex-row lg:my-10">
+            <div class="text-white bg-violet-600 px-6 py-6 rounded-2xl text-center flex flex-col justify-between items-center my-8 sm:text-left sm:flex-row lg:my-8">
                 <p class="text-2xl font-semibold max-w-xs pb-6 sm:pb-0 sm:pr-4">Ready to get started? Find your new job today.</p>
                 <a href="vacancies.html" class="text-center text-sm font-semibold text-violet-600 bg-white px-3 py-2.5 rounded-lg hover:bg-violet-200 transition-all">See all vacancies</a>
             </div>
 
             <div class="columns-1 space-y-4 mb-6 relative gap-2 sm:gap-4 lg:gap-6 sm:columns-2 lg:columns-3 lg:space-y-6">
-                <!-- 1 -->
+                <!-- 6 -->
                 <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
                     <div class="flex items-center justify-between mb-3">
                         <span>
@@ -800,11 +813,11 @@
                             </p>
                         </div>
                         <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                            <img src="./images/social-icon.svg" alt="" class="w-5 h-5">
                         </a>
                     </div>
                 </div>
-                <!-- 2 -->
+                <!-- 7 -->
                 <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
                     <div class="flex items-center justify-between mb-3">
                         <span>
@@ -843,11 +856,11 @@
                             </p>
                         </div>
                         <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                            <img src="./images/social-icon.svg" alt="" class="w-5 h-5">
                         </a>
                     </div>
                 </div>
-                <!-- 3 -->
+                <!-- 8 -->
                 <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4">
                     <div class="flex items-center justify-between mb-3">
                         <span>
@@ -867,23 +880,30 @@
                     <p class="text-xl mb-6">
                         This eplanation might be long, so we’ll add some more text in here. Some descriptive text about our process that might be in a couple of lines to be fully clear. This eplanation might be long, so we’ll add some more text in here
                     </p>
-                    <p class="text-base font-medium">Sam Smith</p>
-                    <div class="flex justify-between">
-                        <div class="w-4/5 text-sm flex items-center text-gray-500 dark:text-dark-100">
-                            <p class="truncate">
-                                Project manager industrial
-                            </p>
-                            <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
-                            <p class="whitespace-nowrap">
-                                12-05-2023
-                            </p>
+                    <div class="flex items-center w-full">
+                        <div class="mr-2 hidden md:flex">
+                            <img src="./images/avatar06.png" class="w-9 h-9" alt="">
                         </div>
-                        <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
-                        </a>
+                        <div class="md:w-5/6">
+                            <h3 class="font-medium">Sam Smith</h3>
+                            <div class="flex justify-between">
+                                <div class="w-5/6 text-sm flex items-center text-gray-500 dark:text-dark-100">
+                                    <p class="truncate">
+                                        Project manager industrial
+                                    </p>
+                                    <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
+                                    <p class="whitespace-nowrap">
+                                        12-05-2023
+                                    </p>
+                                </div>
+                                <a href="#">
+                                    <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- 4 -->
+                <!-- 9 -->
                 <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4 hidden lg:block">
                     <div class="flex items-center justify-between mb-3">
                         <span>
@@ -923,11 +943,11 @@
                             </p>
                         </div>
                         <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                            <img src="./images/social-icon.svg" alt="" class="w-5 h-5">
                         </a>
                     </div>
                 </div>
-                <!-- 5 -->
+                <!-- 10 -->
                 <div class="break-inside-avoid-column border border-gray-85 dark:bg-dark-200 dark:border-gray-60 dark:text-white rounded-2xl p-4 hidden lg:block">
                     <div class="flex items-center justify-between mb-3">
                         <span>
@@ -956,20 +976,27 @@
                     <p class="text-xl mb-6">
                         Are you an experienced manager
                     </p>
-                    <p class="text-base font-medium">Robert Fox</p>
-                    <div class="flex justify-between">
-                        <div class="w-4/5 text-sm flex items-center text-gray-500 dark:text-dark-100">
-                            <p class="truncate">
-                                Talent Advisor Industrial
-                            </p>
-                            <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
-                            <p class="whitespace-nowrap">
-                                12-05-2023
-                            </p>
+                    <div class="flex items-center w-full">
+                        <div class="mr-2 hidden md:flex">
+                            <img src="./images/avatar07.png" class="w-9 h-9" alt="">
                         </div>
-                        <a href="#">
-                            <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
-                        </a>
+                        <div class="md:w-5/6">
+                            <h3 class="font-medium">Robert Fox</h3>
+                            <div class="flex justify-between">
+                                <div class="w-5/6 text-sm flex items-center text-gray-500 dark:text-dark-100">
+                                    <p class="truncate">
+                                        Talent Advisor Industrial
+                                    </p>
+                                    <span class="rounded-full bg-gray-500 dark:bg-dark-100 w-1 h-1 inline-block mx-2 flex-none"></span>
+                                    <p class="whitespace-nowrap">
+                                        12-05-2023
+                                    </p>
+                                </div>
+                                <a href="#">
+                                    <svg class="w-5 h-5"><use xlink:href='#google-ico'/></svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
